@@ -956,6 +956,7 @@ export class GameLevel {
 		finalScore = Math.round(finalScore * this.scoreFactor);
 		info.scoreContrib += finalScore;
 		this.validWordCount++;
+		ScoresDatabase.addBoardPoints(finalScore, this.language.uuid);		// (before the score itself, see seedBoardLedger)
 		this.scoreWidget.addToScore(finalScore);
 	}
 

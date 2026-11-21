@@ -108,8 +108,8 @@ Cloudflare Worker with a D1 database, which runs on the free tier; see `scores-s
 The `Scores: <url>` line in `data/manifest.txt` points the game at the server. When a server is configured:
 * the main menu shows **SCORES**: six rows of position and nickname. Tap a row for its score; tap the panel to
   cycle through High Scores / Your Scores for the current game, then for all of SpellMaze.
-* scores are reported whenever a level is passed and whenever the score board is opened. The board counts the
-  scores of passed levels; levels passed with score-affecting cheats on are left out.
+* scores are reported when a level ends (passed or failed), when leaving the game and when opening SCORES.
+  Words spelled with score-affecting cheats on don't count on the board.
 * CONF has a **Nickname** setting. Players are identified by a random ID kept in the browser.
 
 ## What is ported

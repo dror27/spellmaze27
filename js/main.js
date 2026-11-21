@@ -10,6 +10,7 @@ import { SplashPanel } from './ui/splash.js';
 import { GameManager } from './sequence.js';
 import { el } from './util.js';
 import { registerCustomWords } from './customwords.js';
+import { ScoresDatabase } from './scores.js';
 
 async function boot() {
 	const app = document.getElementById('app');
@@ -35,6 +36,7 @@ async function boot() {
 		console.warn('own word list:', e);
 		Folders.errors.push(`My Words: ${e.message}`);
 	}
+	ScoresDatabase.seedBoardLedger();
 	BrandManager.reload();
 	resetColorTables();
 	SoundTheme.preload();

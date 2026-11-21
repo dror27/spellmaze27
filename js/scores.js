@@ -42,11 +42,10 @@ class ScoresDatabaseImpl {
 			UserPrefs.setInteger(`${PK_SCORE}_${seq}_best`, this.calcBestGameScore(level.seq, null));
 			UserPrefs.setInteger(`${PK_SCORE}_${seq}_${lang}_best`, this.calcBestGameScore(level.seq, lang));
 		}
-		// the shared score board's ledger only counts levels passed without score-affecting cheats
+		// the shared score board's ledger: best level scores only count levels passed without score-affecting cheats
+		// (the running totals are credited word by word, see addBoardPoints)
 		if (!scoreAffectingCheats().length) {
 			const B = 'board_' + PK_SCORE;
-			add(B);
-			add(`${B}_${lang}`);
 			for (const key of [`${B}_${luuid}_max`, `${B}_${luuid}_${lang}_max`])
 				if (score > UserPrefs.getInteger(key, 0))
 					UserPrefs.setInteger(key, score);
@@ -54,7 +53,36 @@ class ScoresDatabaseImpl {
 	}
 
 	// ---- the shared score board's ledger (see reportLevelPassed)
+
+	// credit points of a word to the board's running totals (like the original's running score), unless a
+	// score-affecting cheat is on
+	addBoardPoints(points, langUUID) {
+		if (!points || scoreAffectingCheats().length)
+			return;
+		this.seedBoardLedger();
+		const B = 'board_' + PK_SCORE;
+		UserPrefs.setInteger(B, UserPrefs.getInteger(B, 0) + points);
+		if (langUUID)
+			UserPrefs.setInteger(`${B}_${langUUID}`, UserPrefs.getInteger(`${B}_${langUUID}`, 0) + points);
+	}
+
+	// one time: scores made before the board ledger existed count on the board too
+	seedBoardLedger() {
+		if (UserPrefs.getBoolean('board_seeded', false))
+			return;
+		for (const key of UserPrefs.listKeys(PK_SCORE)) {
+			if (key.endsWith('_when') || key.endsWith('_best'))
+				continue;
+			const bk = 'board_' + key;
+			const v = UserPrefs.getInteger(key, 0);
+			if (v > UserPrefs.getInteger(bk, 0))
+				UserPrefs.setInteger(bk, v);
+		}
+		UserPrefs.setBoolean('board_seeded', true);
+	}
+
 	boardGlobalScore() {
+		this.seedBoardLedger();
 		return UserPrefs.getInteger('board_' + PK_SCORE, 0);
 	}
 	boardScoreForLanguage(lang) {

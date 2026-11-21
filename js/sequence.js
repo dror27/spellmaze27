@@ -220,6 +220,7 @@ export class GameLevelSequence {
 
 	failedLevel(level, message, context) {
 		ScoresDatabase.reportLevelFailed(level);
+		import('./scorescomm.js').then(m => m.reportScoresQuietly());
 		if (message && !UserPrefs.cheat(CHEAT_AUTORUN)) {
 			const panel = new SplashPanel();
 			panel.title = 'Level Failed';

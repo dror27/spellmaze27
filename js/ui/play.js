@@ -39,6 +39,7 @@ export class PlayScreen extends Screen {
 		document.removeEventListener('keydown', this.onKey);
 		clearTimeout(this.titleTimer);
 		this.seq.stop();
+		import('../scorescomm.js').then(m => m.reportScoresQuietly());
 		if (this.seq.eventsTarget === this)
 			this.seq.eventsTarget = null;
 		this.level = null;

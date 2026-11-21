@@ -62,6 +62,6 @@ These controlled developer and store screens of the iOS app. They are accepted, 
 
 While any of `eal`, `rwil`, `ppaw`, `shaw` or `lem` is on, or `ar` together with `aras`, **your scores are not sent to
 the shared score board.** You can still open SCORES and see it; its panel says "not sent: cheats on" and lists the
-codes. Scores you make in the meantime still count in your own game, but **never reach the board**: the
-board only counts levels you passed with those cheats off. The other codes don't make scoring easier and
+codes. Points you make in the meantime still count in your own game, but **never reach the board**: the
+board only counts words spelled, and levels passed, with those cheats off. The other codes don't make scoring easier and
 don't hold scores back.
