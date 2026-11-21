@@ -4,7 +4,7 @@ This guide shows how to make your own **word lists, games (sets of levels) and s
 one as a `.zip` file by hand, and load it into the game in your browser. You don't need to install anything,
 fork the repository or write code: a text editor and a zip tool are enough.
 
-Working examples of everything described here are in [`examples/`](../examples/): the source folders and
+Looking for inspiration? See [IDEAS.md](IDEAS.md). Working examples of everything described here are in [`examples/`](../examples/): the source folders and
 ready-made zips you can import right away. Download the zips from
 https://github.com/dror27/spellmaze27/tree/master/examples/zips (open a file, then use the download button).
 The game itself is at https://dror27.github.io/spellmaze27/.

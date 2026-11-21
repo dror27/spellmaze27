@@ -31,6 +31,7 @@ To publish catalog changes, rebuild `data/more` with `tools/build_catalog.py`, c
 
 [docs/CONTENT_GUIDE.md](docs/CONTENT_GUIDE.md) explains how to build word lists, games (sets of levels) and skins
 as zip files by hand, and how to import them in the game. Working examples are in [examples/](examples/).
+[docs/IDEAS.md](docs/IDEAS.md) collects ideas for new word lists, games, levels, skins and features.
 
 ## Players' own words, item settings and updates
 
