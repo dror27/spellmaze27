@@ -4,6 +4,7 @@ import { el, escapeHtml, toBool } from '../util.js';
 import { Stage, STAGE_W, NAV_H, CONTENT_H } from './stage.js';
 import { BrandManager } from '../brand.js';
 import { SoundTheme } from '../sound.js';
+import { UserPrefs, CHEAT_AUTORUN } from '../prefs.js';
 
 const TOP_PORTION = 0.12;
 const BOTTOM_PORTION = 0.12;
@@ -110,10 +111,15 @@ export class SplashPanel {
 		});
 		if (this.delegate && this.delegate.splashDidShow)
 			this.delegate.splashDidShow(this);
+		// in autorun mode panels close by themselves
+		if (UserPrefs.cheat(CHEAT_AUTORUN)) {
+			const root = this.root;
+			setTimeout(() => { if (this.root === root) this.hide(); }, 2600);
+		}
 	}
 
 	onTouched() {
-		if ((Date.now() - this.shownAt) / 1000 < this.minShowTime)
+		if (!UserPrefs.cheat(CHEAT_AUTORUN) && (Date.now() - this.shownAt) / 1000 < this.minShowTime)
 			return;
 		SoundTheme.clicked();
 		this.hide();

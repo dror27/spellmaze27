@@ -1,7 +1,7 @@
 // SpellMaze - shared score board client (port of ScoresComm). The server lives in scores-server/.
 
 import { Folders } from './folders.js';
-import { UserPrefs, PK_IDENTITY_UUID } from './prefs.js';
+import { UserPrefs, PK_IDENTITY_UUID, scoreAffectingCheats } from './prefs.js';
 import { ScoresDatabase } from './scores.js';
 import { GameManager } from './sequence.js';
 import { createUUID } from './util.js';
@@ -74,11 +74,12 @@ export class ScoresComm {
 			'identity-icon': UserPrefs.getString(PK_IDENTITY_ICON, ''),
 			locale: navigator.language || '',
 			'query-type': this.type,
-			'games-scores': [
-				{ type: 'global', score: sdb.globalScore() },
-				{ type: 'game', score: sdb.bestScoreForGame(game) },
-				{ type: 'language', score: sdb.scoreForLanguage(language) },
-				{ type: 'game_language', score: sdb.bestScoreForGame(game, language) }
+			// scores made with score-affecting cheats are kept off the shared board (the board is still shown)
+			'games-scores': scoreAffectingCheats().length ? [] : [
+				{ type: 'global', score: sdb.boardGlobalScore() },
+				{ type: 'game', score: sdb.boardBestScoreForGame(seq, null) },
+				{ type: 'language', score: sdb.boardScoreForLanguage(language) },
+				{ type: 'game_language', score: sdb.boardBestScoreForGame(seq, language) }
 			]
 		};
 	}
@@ -96,6 +97,9 @@ export class ScoresComm {
 			throw new Error(data.error || `HTTP ${resp.status}`);
 		data.title = this.title(seq);
 		data['sub-title'] = this.subTitle();
+		const cheats = scoreAffectingCheats();
+		if (cheats.length)
+			data['sub-title'] += ` - not sent: cheats on (${cheats.join(', ')})`;
 		return data;
 	}
 }
@@ -103,7 +107,7 @@ export class ScoresComm {
 // report the scores in the background (after passing a level), so the board stays current
 let reporting = false;
 export async function reportScoresQuietly() {
-	if (!Folders.scoresUrl || reporting)
+	if (!Folders.scoresUrl || reporting || scoreAffectingCheats().length)
 		return;
 	reporting = true;
 	try {

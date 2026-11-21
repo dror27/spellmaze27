@@ -32,6 +32,12 @@ To publish catalog changes, rebuild `data/more` with `tools/build_catalog.py`, c
 [docs/CONTENT_GUIDE.md](docs/CONTENT_GUIDE.md) explains how to build word lists, games (sets of levels) and skins
 as zip files by hand, and how to import them in the game. Working examples are in [examples/](examples/).
 
+## Cheat codes
+
+As in the original, codes added to the nickname (`Dror/eal/shaw`) turn on hidden options, including a
+self-playing demo mode. They're listed in the game under CONF › Cheat Codes and in
+[docs/CHEAT_CODES.md](docs/CHEAT_CODES.md). Scores made with score-affecting cheats aren't sent to the shared board.
+
 ## Data: property files and zips
 
 The game content keeps its original format and layout: UUID folders holding `props.plist`
@@ -92,7 +98,8 @@ Cloudflare Worker with a D1 database, which runs on the free tier; see `scores-s
 The `Scores: <url>` line in `data/manifest.txt` points the game at the server. When a server is configured:
 * the main menu shows **SCORES**: six rows of position and nickname. Tap a row for its score; tap the panel to
   cycle through High Scores / Your Scores for the current game, then for all of SpellMaze.
-* scores are reported whenever a level is passed and whenever the score board is opened.
+* scores are reported whenever a level is passed and whenever the score board is opened. The board counts the
+  scores of passed levels; levels passed with score-affecting cheats on are left out.
 * CONF has a **Nickname** setting. Players are identified by a random ID kept in the browser.
 
 ## What is ported

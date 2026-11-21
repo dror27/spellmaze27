@@ -18,7 +18,8 @@ import { ScoresDatabase } from './scores.js';
 import {
 	UserPrefs, UserPrefsUPL, UUIDPropsUPL,
 	CHEAT_REPEAT_WORDS_IN_LEVEL, CHEAT_PLAY_PAUSE_AT_WILL, CHEAT_SHOW_HINTS_AT_WILL, CHEAT_LEVEL_END_MENU,
-	CHEAT_SPEAK_LETTER_SPELLING
+	CHEAT_SPEAK_LETTER_SPELLING, CHEAT_WIDE_CELLS, CHEAT_TEXT_HINT_MODE_1, CHEAT_TEXT_HINT_MODE_2,
+	CHEAT_AUTORUN, CHEAT_AUTORUN_ACCUMULATE_SCORE
 } from './prefs.js';
 import { TimerGroup, randInt, shuffle, nowSecs, toBool, toInt, toFloat, dictHas } from './util.js';
 import { SplashPanel, ActionSheet } from './ui/splash.js';
@@ -37,6 +38,8 @@ export const PassedLevelEndMenuContext_ContinueLevel = 3;
 export const PassedLevelEndMenuContext_StopPlaying = 4;
 
 const DEFAULT_BOARD_SIZE = 6;
+const AUTORUN_DELAY = 0;
+const AUTORUN_CLICK_DELAY = 0.2;		// SystemUtils autorunDelay
 const OLD_REWARD_CLEAR_SECS = 3;
 const DEFAULT_BOARD_FULL_WARN_BUDGET = 150;
 const DEFAULT_BOARD_FULL_WARN_COST = 15;
@@ -154,6 +157,8 @@ export class GameLevel {
 				cols = brand.globalInteger('skin/props/grid-cell-columns', DEFAULT_BOARD_SIZE);
 			if (rows < 0)
 				rows = brand.globalInteger('skin/props/grid-cell-rows', DEFAULT_BOARD_SIZE);
+			if (UserPrefs.cheat(CHEAT_WIDE_CELLS))
+				cols = Math.max(1, Math.floor(cols / 2));
 			this.board = new GridBoard(cols, rows);
 			this.board.level = this;
 		}
@@ -248,6 +253,13 @@ export class GameLevel {
 			sw.setPlayState(PS_PLAYING);
 		if (this.allowShowHint)
 			sw.setGameAction(GA_HINT);
+		// autorun (the "ar" cheat): the game plays itself, spelling its own hints right away
+		this.autorun = this.autorun || UserPrefs.cheat(CHEAT_AUTORUN);
+		this.autorunAccumulateScore = UserPrefs.cheat(CHEAT_AUTORUN_ACCUMULATE_SCORE);
+		if (this.autorun) {
+			this.idleToHintGrace = this.betweenHintDelay = this.showHintDelay = AUTORUN_DELAY;
+			this.showHintWord = true;
+		}
 	}
 
 	updateProgress() {
@@ -443,8 +455,26 @@ export class GameLevel {
 					}
 				}
 			}
-			if (this.showHintWord)
-				this.updateHintWord();
+			if (this.showHintWord) {
+				if (UserPrefs.cheat(CHEAT_TEXT_HINT_MODE_1)) {
+					// text hint modes: show the word's text (from the word list) instead of / with the word
+					const md = this.language.wordMetaData(this.hintWord) || {};
+					let w = md.text || null;
+					if (w && w.length > 30)
+						w = w.slice(0, 30) + ' ...';
+					if (!w)
+						w = this.hintWord;
+					if (UserPrefs.cheat(CHEAT_TEXT_HINT_MODE_2))
+						this.scoreWidget.setMessage(this.wordValidator.wordForHintWord(w));
+					else {
+						this.scoreWidget.setMessage1(this.wordValidator.wordForHintWord(this.hintWord));
+						this.scoreWidget.setMessage2(this.wordValidator.wordForHintWord(w));
+					}
+				} else
+					this.updateHintWord();
+			}
+			if (this.autorun)
+				this.autorunSpellHint();
 		}
 		if (this.hintIndex - hintIndexOffset >= 0) {
 			const piece = this.piecesHint[this.hintIndex - hintIndexOffset];
@@ -635,6 +665,8 @@ export class GameLevel {
 		if (this.state !== SUSPENDED && this.state !== DISPENSER_DONE) {
 			this.suspendGame();
 			this.board.setPiecesSelectable(true);
+			if (this.autorun)
+				seconds = 1;
 			this.timers.after(seconds, () => {
 				if (this.state === SUSPENDED)
 					this.resumeGame();
@@ -848,6 +880,57 @@ export class GameLevel {
 		}
 	}
 
+	// ------------------------------------------------ autorun (port of the autorun parts of onTimer)
+
+	autorunSpellHint() {
+		const hint = this.piecesHint;
+		if (!hint || !hint.length)
+			return;
+		let useJokers = !this.logic.includesRole('Disable!');
+		if (useJokers && hint.some(p => pieceIsJoker(p)))
+			useJokers = false;
+		if (useJokers) {
+			const joker = this.board.allPieces().find(p => pieceIsJoker(p) && this.jokerValidForWord(p, this.hintWord));
+			if (joker && randInt(2))
+				hint[randInt(hint.length)] = joker;
+		}
+		this.logic.wordSelectionCanceled();
+		this.resetCurrentWordPieces();
+		const hintWord = this.hintWord;
+		hint.forEach((piece, n) => {
+			const last = n === hint.length - 1;
+			this.timers.after(AUTORUN_CLICK_DELAY * (n + 1), () => this.autorunClickPiece(piece, last, useJokers ? 0.5 : 0.0, hintWord));
+		});
+	}
+
+	autorunClickPiece(piece, last, forceJokerProb, hintWord) {
+		if (this.state === STOPPED || this.state === DEALLOCATED)
+			return;
+		const forceJoker = Math.random() < forceJokerProb;
+		if (!forceJoker && !piece.selected() && !piece.disabled && piece.cell)
+			piece.clicked();
+		else {
+			let found = null;
+			for (const p of this.board.allPieces()) {
+				if (!forceJoker && p === piece)
+					continue;
+				const candidate = piece.sameContentAs(p) || (pieceIsJoker(p) && this.jokerValidForWord(p, hintWord));
+				if (candidate && !p.selected() && !p.disabled) {
+					found = p;
+					break;
+				}
+			}
+			piece = found;
+			if (piece)
+				piece.clicked();
+		}
+		if (piece && last)
+			this.timers.after(AUTORUN_CLICK_DELAY, () => {
+				if (this.state !== STOPPED && this.state !== DEALLOCATED && piece.cell)
+					piece.clicked();
+			});
+	}
+
 	// keyboard backspace (web addition): un-select the last selected piece only
 	removeLastPiece() {
 		const pieces = this.currentWordPieces;
@@ -863,6 +946,8 @@ export class GameLevel {
 	}
 
 	scoreWord(info) {
+		if (this.autorun && !this.autorunAccumulateScore)
+			return;		// autorun plays don't count unless "aras" is on
 		const count = this.currentWordPiecesNonJokerCount();
 		const score = count ? Math.pow(2, count) : 0;
 		let finalScore = this.logic.scoreSuggested(score, this.currentWordPieces);
@@ -912,7 +997,13 @@ export class GameLevel {
 		}
 		if (showWord)
 			this.scoreWidget.setMessage(word);
-		if (this.showRewardText && md.text) {
+		if (this.showRewardText && md.text && UserPrefs.cheat(CHEAT_TEXT_HINT_MODE_1)) {
+			let w = md.text;
+			if (w.length > 30)
+				w = w.slice(0, 30) + ' ...';
+			this.scoreWidget.setMessage1(this.wordValidator.wordForHintWord(word));
+			this.scoreWidget.setMessage2(this.wordValidator.wordForHintWord(w));
+		} else if (this.showRewardText && md.text) {
 			const panel = new SplashPanel();
 			panel.title = md.textTitle || word;
 			panel.text = md.text;

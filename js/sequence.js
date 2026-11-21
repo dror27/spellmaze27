@@ -10,6 +10,7 @@ import { ParametricGameLevel, DISPENSER_DONE,
 	PassedLevelEndMenuContext_ContinueLevel, PassedLevelEndMenuContext_StopPlaying } from './gamelevel.js';
 import { ScoresDatabase } from './scores.js';
 import { SplashPanel, ActionSheet } from './ui/splash.js';
+import { CHEAT_AUTORUN, CHEAT_AUTORUN_LEVEL_LOOP, CHEAT_AUTORUN_GAME_LOOP } from './prefs.js';
 import { deepCopy, toBool } from './util.js';
 
 export const GM_DEFAULT_GAME = '6F161DAF-6349-2774-9B9B-A9C5DA906534';
@@ -164,7 +165,15 @@ export class GameLevelSequence {
 				UserPrefs.setLevelExhausted(level.uuid, level.language.uuid, true);
 			ScoresDatabase.reportLevelPassed(level);
 			import('./scorescomm.js').then(m => m.reportScoresQuietly());
-			if (level.levelEndMenu) {
+			if (UserPrefs.cheat(CHEAT_AUTORUN)) {
+				// autorun answers the level end menu by itself
+				if (level.levelEndMenu && level.languageWordCount() - level.validSelectedWordCount() > level.levelEndContinueRemainingWordCountThreshold)
+					context = PassedLevelEndMenuContext_ContinueLevel;
+				else if (UserPrefs.cheat(CHEAT_AUTORUN_LEVEL_LOOP))
+					context = PassedLevelEndMenuContext_RepeatLevel;
+				else
+					context = PassedLevelEndMenuContext_NextLevel;
+			} else if (level.levelEndMenu) {
 				this.showPassedLevelEndMenu(level);
 				return;
 			}
@@ -188,6 +197,8 @@ export class GameLevelSequence {
 			this.currentLevel = this.levels.length;
 		if (this.currentLevel < this.levels.length)
 			this.startCurrentLevel(continueCurrent);
+		else if (UserPrefs.cheat(CHEAT_AUTORUN_GAME_LOOP))
+			this.startLevel(0);
 		else {
 			this.discardCurrentLevel();
 			if (this.eventsTarget && this.eventsTarget.sequenceFinished)
@@ -209,7 +220,7 @@ export class GameLevelSequence {
 
 	failedLevel(level, message, context) {
 		ScoresDatabase.reportLevelFailed(level);
-		if (message) {
+		if (message && !UserPrefs.cheat(CHEAT_AUTORUN)) {
 			const panel = new SplashPanel();
 			panel.title = 'Level Failed';
 			panel.text = message;
@@ -224,6 +235,8 @@ export class GameLevelSequence {
 	failedLevelBody() {
 		if (this.currentLevel < this.levels.length)
 			this.startCurrentLevel(false);
+		else if (UserPrefs.cheat(CHEAT_AUTORUN_GAME_LOOP))
+			this.startLevel(0);
 		else {
 			this.discardCurrentLevel();
 			if (this.eventsTarget && this.eventsTarget.sequenceFinished)

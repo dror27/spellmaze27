@@ -1,6 +1,6 @@
 // SpellMaze - local scores database (port of ScoresDatabase, minus the network reporting)
 
-import { UserPrefs, PK_SCORE } from './prefs.js';
+import { UserPrefs, PK_SCORE, scoreAffectingCheats } from './prefs.js';
 import { nowSecs, formatNumber } from './util.js';
 
 const REPORT_LOG_KEY = 'reports-log';
@@ -42,6 +42,29 @@ class ScoresDatabaseImpl {
 			UserPrefs.setInteger(`${PK_SCORE}_${seq}_best`, this.calcBestGameScore(level.seq, null));
 			UserPrefs.setInteger(`${PK_SCORE}_${seq}_${lang}_best`, this.calcBestGameScore(level.seq, lang));
 		}
+		// the shared score board's ledger only counts levels passed without score-affecting cheats
+		if (!scoreAffectingCheats().length) {
+			const B = 'board_' + PK_SCORE;
+			add(B);
+			add(`${B}_${lang}`);
+			for (const key of [`${B}_${luuid}_max`, `${B}_${luuid}_${lang}_max`])
+				if (score > UserPrefs.getInteger(key, 0))
+					UserPrefs.setInteger(key, score);
+		}
+	}
+
+	// ---- the shared score board's ledger (see reportLevelPassed)
+	boardGlobalScore() {
+		return UserPrefs.getInteger('board_' + PK_SCORE, 0);
+	}
+	boardScoreForLanguage(lang) {
+		return UserPrefs.getInteger(`board_${PK_SCORE}_${lang}`, 0);
+	}
+	boardBestScoreForGame(seq, langUUID) {
+		let score = 0;
+		for (const level of seq.allLevelUUIDs())
+			score += UserPrefs.getInteger(langUUID ? `board_${PK_SCORE}_${level}_${langUUID}_max` : `board_${PK_SCORE}_${level}_max`, 0);
+		return score;
 	}
 	reportLevelFailed(level) {
 		this.reportLevelEvent(level, 'failed');

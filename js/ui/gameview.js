@@ -5,6 +5,7 @@ import { BrandManager } from '../brand.js';
 import { GridBoard } from '../board.js';
 import { ASSETS } from '../piece.js';
 import { STAGE_W, Stage } from './stage.js';
+import { UserPrefs, CHEAT_OLD_IMAGE_HINTS } from '../prefs.js';
 
 export class GameLevelView {
 	constructor(frame, model) {
@@ -58,6 +59,11 @@ export class GameLevelView {
 
 		this.polaroidMargin = 3;
 		this.polaroidMarginBottom = 0;
+		if (UserPrefs.cheat(CHEAT_OLD_IMAGE_HINTS)) {
+			// the original's first picture hints: a real polaroid, with a wide bottom margin
+			this.polaroidMargin = 10;
+			this.polaroidMarginBottom = 25;
+		}
 		this.hintImageFrame = null;
 
 		const curtain = brand.globalImage('pause-curtain') || ASSETS + 'PauseCurtain.png';

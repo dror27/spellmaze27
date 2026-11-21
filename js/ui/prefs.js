@@ -6,7 +6,9 @@ import { ActionSheet, SplashPanel } from './splash.js';
 import {
 	UserPrefs, PK_SOUND_ENABLED, PK_TTS_ENABLED, PK_LANG_DEFAULT, PK_GAME_SPEED, PK_LEVEL_SET, PK_BRAND,
 	CHEAT_ENABLE_ALL_LEVELS, CHEAT_REPEAT_WORDS_IN_LEVEL, CHEAT_PLAY_PAUSE_AT_WILL, CHEAT_SHOW_HINTS_AT_WILL,
-	CHEAT_DISABLE_ALL_DECORATIONS, CHEAT_LEVEL_END_MENU, CHEAT_SPEAK_LETTER_SPELLING
+	CHEAT_DISABLE_ALL_DECORATIONS, CHEAT_LEVEL_END_MENU, CHEAT_SPEAK_LETTER_SPELLING, CHEAT_WIDE_CELLS,
+	CHEAT_OLD_IMAGE_HINTS, CHEAT_TEXT_HINT_MODE_1, CHEAT_TEXT_HINT_MODE_2, CHEAT_AUTORUN, CHEAT_AUTORUN_LEVEL_LOOP,
+	CHEAT_AUTORUN_GAME_LOOP, CHEAT_AUTORUN_ACCUMULATE_SCORE, CHEAT_CODES, CHEAT_INFO, nickCodes
 } from '../prefs.js';
 import { Folders, ZipStore, DF_LANGUAGES, DF_GAMES, DF_BRANDS } from '../folders.js';
 import { LanguageManager } from '../language.js';
@@ -167,6 +169,7 @@ export class PrefsScreen extends Screen {
 
 		s = this.section(p, null);
 		this.row(s, 'Advanced Settings', { disclosure: true, action: () => this.showPage(q => this.advancedPage(q), 'Advanced') });
+		this.row(s, 'Cheat Codes', { sub: 'Hidden options for practice and demos', disclosure: true, action: () => this.showPage(q => this.cheatCodesPage(q), 'Cheat Codes') });
 
 		el('div', 'prefs-footer', p).textContent = `SpellMaze, Version ${VERSION}`;
 	}
@@ -485,14 +488,48 @@ export class PrefsScreen extends Screen {
 				{ label: 'Cancel', style: 'cancel' }
 			])
 		});
-		s = this.section(p, 'For testing and practice', 'Cheats');
-		this.toggle(s, 'Enable All Levels', CHEAT_ENABLE_ALL_LEVELS, false);
-		this.toggle(s, 'Repeat Words', CHEAT_REPEAT_WORDS_IN_LEVEL, false);
-		this.toggle(s, 'Pause Levels At Will', CHEAT_PLAY_PAUSE_AT_WILL, false);
-		this.toggle(s, 'Show Hint At Will', CHEAT_SHOW_HINTS_AT_WILL, false);
-		this.toggle(s, 'Disable Decorations', CHEAT_DISABLE_ALL_DECORATIONS, false);
-		this.toggle(s, 'Level End Menu', CHEAT_LEVEL_END_MENU, false);
-		this.toggle(s, 'Speak Spell', CHEAT_SPEAK_LETTER_SPELLING, false);
+		s = this.section(p, 'For testing and practice. Each can also be turned on by adding its code to your nickname (see Cheat Codes). While one that makes scoring easier is on, your scores are not sent to the shared score board.', 'Cheats');
+		const cheats = [
+			['Enable All Levels', CHEAT_ENABLE_ALL_LEVELS], ['Repeat Words', CHEAT_REPEAT_WORDS_IN_LEVEL],
+			['Pause Levels At Will', CHEAT_PLAY_PAUSE_AT_WILL], ['Show Hint At Will', CHEAT_SHOW_HINTS_AT_WILL],
+			['Disable Decorations', CHEAT_DISABLE_ALL_DECORATIONS], ['Level End Menu', CHEAT_LEVEL_END_MENU],
+			['Speak Spell', CHEAT_SPEAK_LETTER_SPELLING], ['Wide Cells', CHEAT_WIDE_CELLS],
+			['Old Image Hint', CHEAT_OLD_IMAGE_HINTS], ['Text Hint M1', CHEAT_TEXT_HINT_MODE_1],
+			['Text Hint M2', CHEAT_TEXT_HINT_MODE_2], ['AR Mode (autorun)', CHEAT_AUTORUN],
+			['AR Level Loop', CHEAT_AUTORUN_LEVEL_LOOP], ['AR Game Loop', CHEAT_AUTORUN_GAME_LOOP],
+			['AR Acc. Score', CHEAT_AUTORUN_ACCUMULATE_SCORE]
+		];
+		const codes = nickCodes();
+		for (const [label, key] of cheats) {
+			const r = this.toggle(s, label, key, false);
+			const sub = el('div', 'prefs-sub', r.querySelector('.prefs-label'));
+			sub.textContent = `/${CHEAT_CODES[key]}` + (codes.has(CHEAT_CODES[key]) ? ' - on through your nickname' : '');
+		}
+	}
+
+	cheatCodesPage(p) {
+		const intro = el('div', 'prefs-comment', p);
+		intro.innerHTML = 'Add codes to your nickname, each after a <b>/</b>, for example <b>Dror/eal/shaw</b>. ' +
+			'Only the part before the first / is shown on the score board.';
+		if (Folders.scoresUrl) {
+			const s0 = this.section(p, null);
+			this.row(s0, 'Nickname', { value: UserPrefs.getString(PK_IDENTITY_NICK, '') || '(not set)', disclosure: true, action: () => this.back() });
+		}
+		const codes = nickCodes();
+		const s = this.section(p, 'Codes marked * keep your scores off the shared score board while they are on. Each cheat can also be switched on under Advanced Settings.');
+		s.classList.add('prefs-wrap');
+		const scoreKeys = new Set([CHEAT_ENABLE_ALL_LEVELS, CHEAT_REPEAT_WORDS_IN_LEVEL, CHEAT_PLAY_PAUSE_AT_WILL, CHEAT_SHOW_HINTS_AT_WILL, CHEAT_LEVEL_END_MENU, CHEAT_AUTORUN_ACCUMULATE_SCORE]);
+		for (const [key, name, desc] of CHEAT_INFO) {
+			const code = CHEAT_CODES[key];
+			const r = this.row(s, `/${code}${scoreKeys.has(key) ? ' *' : ''}`, { sub: `${name}: ${desc}`, checked: UserPrefs.cheat(key) });
+			if (codes.has(code))
+				r.querySelector('.prefs-sub').append(' (in your nickname)');
+		}
+		const s2 = this.section(p, null);
+		this.row(s2, 'All the details', {
+			sub: 'docs/CHEAT_CODES.md on GitHub', disclosure: true,
+			action: () => window.open('https://github.com/dror27/spellmaze27/blob/master/docs/CHEAT_CODES.md', '_blank', 'noopener')
+		});
 	}
 
 	resetProgress() {

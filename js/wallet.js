@@ -9,6 +9,8 @@ export const DECORATOR_BOMB = 'BombPieceDecorator';
 export const DECORATOR_COIN = 'CoinPieceDecorator';
 export const DECORATOR_DIGIT = 'DigitPieceDecorator';
 
+import { UserPrefs, CHEAT_AUTORUN, CHEAT_AUTORUN_ACCUMULATE_SCORE } from './prefs.js';
+
 const KEY = 'spellmaze:wallet';
 
 class WalletImpl {
@@ -31,6 +33,9 @@ class WalletImpl {
 		} catch (e) { }
 	}
 	incrWalletItemValue(name, incr) {
+		// in autorun mode the wallet only fills up when "aras" (accumulate score) is on
+		if (incr > 0 && UserPrefs.cheat(CHEAT_AUTORUN) && !UserPrefs.cheat(CHEAT_AUTORUN_ACCUMULATE_SCORE))
+			return false;
 		const value = this.walletItemValue(name);
 		const step = this.walletItemDisplayStepSize(name);
 		const stepChanged = Math.trunc(value / step) !== Math.trunc((value + incr) / step);
