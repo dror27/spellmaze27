@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Spin Cycle</string>
+	<key>comment</key>
+	<string>The board turns: with every new letter, every tap,
+every mistake, or like a clock. Six levels, for any word list.</string>
+	<key>version</key>
+	<real>1.0</real>
+	<key>filename</key>
+	<string>Spin_Cycle</string>
+	<key>uuid</key>
+	<string>C9B761B3-FA17-417A-9136-A1543BB7D597</string>
+</dict>
+</plist>

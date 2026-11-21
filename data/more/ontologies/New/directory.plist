@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>SpellMaze 2026</string>
 	<key>comment</key>
-	<string>New word lists: phonics, spelling bees, equations, primes</string>
+	<string>New word lists: phonics, spelling bees, equations, primes, hiragana, katakana</string>
 	<key>items</key>
 	<array>
 		<dict>
@@ -30,6 +30,52 @@ from digit and sign tiles (numbers up to 12).</string>
 			<string>Equations.zip</string>
 			<key>leading-uuid</key>
 			<string>DFC2155B-6578-405D-BE1B-ADB8220195BB</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>item</string>
+			<key>uuid</key>
+			<string>F6E497E6-8512-4332-9C15-C4CFBAED73D1</string>
+			<key>version</key>
+			<real>1.0</real>
+			<key>name</key>
+			<string>Hiragana</string>
+			<key>comment</key>
+			<string>98 everyday Japanese words in hiragana, each
+with its reading (romaji) and meaning. Spoken in Japanese.</string>
+			<key>item-icon</key>
+			<string>Hiragana_item_icon.png</string>
+			<key>icon</key>
+			<string>Hiragana_item_poster.png</string>
+			<key>domain</key>
+			<string>Ontologies</string>
+			<key>url</key>
+			<string>Hiragana.zip</string>
+			<key>leading-uuid</key>
+			<string>396C00F0-7FF0-4821-821C-68ABAE9B8BF4</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>item</string>
+			<key>uuid</key>
+			<string>ECCF6EAA-A09B-4769-A5DF-B4701E1392FE</string>
+			<key>version</key>
+			<real>1.0</real>
+			<key>name</key>
+			<string>Katakana</string>
+			<key>comment</key>
+			<string>55 loanwords in katakana (coffee, taxi, pizza ...),
+each with its reading (romaji) and meaning. Spoken in Japanese.</string>
+			<key>item-icon</key>
+			<string>Katakana_item_icon.png</string>
+			<key>icon</key>
+			<string>Katakana_item_poster.png</string>
+			<key>domain</key>
+			<string>Ontologies</string>
+			<key>url</key>
+			<string>Katakana.zip</string>
+			<key>leading-uuid</key>
+			<string>2FEC0153-2216-463C-A2B9-861E3EE208CA</string>
 		</dict>
 		<dict>
 			<key>type</key>

@@ -5,7 +5,7 @@
 	<key>name</key>
 	<string>SpellMaze 2026</string>
 	<key>comment</key>
-	<string>New games: Kids, Spelling Bee, Shapes</string>
+	<string>New games: Kids, Spelling Bee, Shapes, Spin Cycle</string>
 	<key>items</key>
 	<array>
 		<dict>
@@ -76,6 +76,29 @@ Four levels; best with word lists that have meanings.</string>
 			<string>Spelling_Bee.zip</string>
 			<key>leading-uuid</key>
 			<string>6A4E7D8C-DB71-4924-A6C7-A481C6D0A3DE</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>item</string>
+			<key>uuid</key>
+			<string>C9B761B3-FA17-417A-9136-A1543BB7D597</string>
+			<key>version</key>
+			<real>1.0</real>
+			<key>name</key>
+			<string>Spin Cycle</string>
+			<key>comment</key>
+			<string>The board turns: with every new letter, every tap,
+every mistake, or like a clock. Six levels, for any word list.</string>
+			<key>item-icon</key>
+			<string>Spin_Cycle_item_icon.png</string>
+			<key>icon</key>
+			<string>Spin_Cycle_item_poster.png</string>
+			<key>domain</key>
+			<string>Games</string>
+			<key>url</key>
+			<string>Spin_Cycle.zip</string>
+			<key>leading-uuid</key>
+			<string>39FEF776-B67E-469F-B4DA-C937D83F4ACC</string>
 		</dict>
 	</array>
 </dict>

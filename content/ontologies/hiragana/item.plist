@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Hiragana</string>
+	<key>comment</key>
+	<string>98 everyday Japanese words in hiragana, each
+with its reading (romaji) and meaning. Spoken in Japanese.</string>
+	<key>version</key>
+	<real>1.0</real>
+	<key>filename</key>
+	<string>Hiragana</string>
+	<key>uuid</key>
+	<string>F6E497E6-8512-4332-9C15-C4CFBAED73D1</string>
+	<key>embed-game</key>
+	<string>kana</string>
+</dict>
+</plist>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Katakana</string>
+	<key>comment</key>
+	<string>55 loanwords in katakana (coffee, taxi, pizza ...),
+each with its reading (romaji) and meaning. Spoken in Japanese.</string>
+	<key>version</key>
+	<real>1.0</real>
+	<key>filename</key>
+	<string>Katakana</string>
+	<key>uuid</key>
+	<string>ECCF6EAA-A09B-4769-A5DF-B4701E1392FE</string>
+	<key>embed-game</key>
+	<string>kana</string>
+</dict>
+</plist>

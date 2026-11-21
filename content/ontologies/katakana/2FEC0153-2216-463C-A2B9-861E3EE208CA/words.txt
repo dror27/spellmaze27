@@ -1,0 +1,56 @@
+# Katakana: kana|kana (romaji)|meaning
+アイス|アイス  (aisu)|Ice cream
+アニメ|アニメ  (anime)|Animation, cartoons
+アメリカ|アメリカ  (amerika)|America
+インターネット|インターネット  (intaanetto)|The internet
+エレベーター|エレベーター  (erebeetaa)|Elevator
+カメラ|カメラ  (kamera)|Camera
+カレー|カレー  (karee)|Curry
+ガラス|ガラス  (garasu)|Glass
+ギター|ギター  (gitaa)|Guitar
+クラス|クラス  (kurasu)|Class
+ケーキ|ケーキ  (keeki)|Cake
+ゲーム|ゲーム  (geemu)|Game
+コアラ|コアラ  (koara)|Koala
+コーヒー|コーヒー  (koohii)|Coffee
+コップ|コップ  (koppu)|Cup, glass
+ゴリラ|ゴリラ  (gorira)|Gorilla
+コンピューター|コンピューター  (konpyuutaa)|Computer
+サッカー|サッカー  (sakkaa)|Soccer, football
+サラダ|サラダ  (sarada)|Salad
+シャツ|シャツ  (shatsu)|Shirt
+ジュース|ジュース  (juusu)|Juice
+スキー|スキー  (sukii)|Skiing
+スープ|スープ  (suupu)|Soup
+スプーン|スプーン  (supuun)|Spoon
+タクシー|タクシー  (takushii)|Taxi
+チーズ|チーズ  (chiizu)|Cheese
+チーム|チーム  (chiimu)|Team
+テスト|テスト  (tesuto)|Test
+テニス|テニス  (tenisu)|Tennis
+テレビ|テレビ  (terebi)|Television
+トイレ|トイレ  (toire)|Toilet
+ドア|ドア  (doa)|Door
+トマト|トマト  (tomato)|Tomato
+ドラマ|ドラマ  (dorama)|TV drama
+ナイフ|ナイフ  (naifu)|Knife
+ノート|ノート  (nooto)|Notebook
+バス|バス  (basu)|Bus
+バナナ|バナナ  (banana)|Banana
+ハンバーガー|ハンバーガー  (hanbaagaa)|Hamburger
+パン|パン  (pan)|Bread
+パンダ|パンダ  (panda)|Panda
+ピアノ|ピアノ  (piano)|Piano
+ピザ|ピザ  (piza)|Pizza
+ビル|ビル  (biru)|Building
+ペン|ペン  (pen)|Pen
+ペンギン|ペンギン  (pengin)|Penguin
+ボール|ボール  (booru)|Ball
+ホテル|ホテル  (hoteru)|Hotel
+ミルク|ミルク  (miruku)|Milk
+メール|メール  (meeru)|Email
+メロン|メロン  (meron)|Melon
+ライオン|ライオン  (raion)|Lion
+ラジオ|ラジオ  (rajio)|Radio
+レモン|レモン  (remon)|Lemon
+ロボット|ロボット  (robotto)|Robot

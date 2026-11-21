@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Katakana</string>
+	<key>description</key>
+	<string>Loanwords in katakana</string>
+	<key>item-icon</key>
+	<string>icon.png</string>
+	<key>voice-language</key>
+	<string>ja</string>
+	<key>text-delimiter</key>
+	<string>|</string>
+	<key>all-caps</key>
+	<false/>
+	<key>allow-add-word</key>
+	<false/>
+	<key>tutorial-words</key>
+	<array>
+		<string>パン</string>
+		<string>バス</string>
+		<string>ピザ</string>
+		<string>カメラ</string>
+	</array>
+</dict>
+</plist>

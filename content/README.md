@@ -9,9 +9,13 @@ the game under CONF › Game / Game Type / Skin › Get More › SpellMaze More 
 | `ontologies/spelling-bee-grade-1`, `-3`, `-5` | word lists | 30 spelling words per grade, each with its meaning; carry the *Spelling Bee* game |
 | `ontologies/equations` | word list | 404 true equations with numbers up to 12 (`+`, `-`, `×`); plays with any game |
 | `ontologies/primes` | word list | every prime from 11 to 99,991; carries the *Prime Time* game |
+| `ontologies/hiragana` | word list | 98 everyday Japanese words in hiragana, each with its reading (romaji) and meaning, spoken in Japanese; carries the *Kana* game |
+| `ontologies/katakana` | word list | 55 loanwords in katakana (coffee, taxi, pizza …), with readings and meanings; carries the *Kana* game |
 | `games/kids` | game | 6 gentle levels: big tiles, slow letters, hints, nobody loses |
 | `games/spelling-bee` | game | 4 levels: hear each word, then spell it (in order, scrambled, shuffled, fast) |
 | `games/shapes` | game | 8 levels on boards of different shapes (plus, ring, staircase, diamond, hourglass, islands, towers, checkers) |
+| `games/spin-cycle` | game | 6 levels where the board turns: with every new letter, upside down, with every tap, after a mistake, like a clock, and flipping like a mirror |
+| `games/kana` | game | 5 gentle levels for the kana lists; shipped inside them only (not listed separately) |
 | `games/prime-time` | game | 5 levels of prime numbers; shipped inside the Primes word list only (not listed separately) |
 | `brands/high-contrast` | skin | color-blind safe Okabe-Ito tile colors on black, with a strong grid |
 

@@ -1,0 +1,99 @@
+# Hiragana: kana|kana (romaji)|meaning
+あい|あい  (ai)|Love
+あお|あお  (ao)|Blue
+あか|あか  (aka)|Red
+あき|あき  (aki)|Autumn
+あさ|あさ  (asa)|Morning
+あし|あし  (ashi)|Foot, leg
+あたま|あたま  (atama)|Head
+あめ|あめ  (ame)|Rain
+あした|あした  (ashita)|Tomorrow
+ありがとう|ありがとう  (arigatou)|Thank you
+いえ|いえ  (ie)|House
+いけ|いけ  (ike)|Pond
+いし|いし  (ishi)|Stone
+いす|いす  (isu)|Chair
+いぬ|いぬ  (inu)|Dog
+いもうと|いもうと  (imouto)|Younger sister
+いろ|いろ  (iro)|Color
+うえ|うえ  (ue)|Above, on top
+うた|うた  (uta)|Song
+うま|うま  (uma)|Horse
+うみ|うみ  (umi)|Sea
+えき|えき  (eki)|Station
+えんぴつ|えんぴつ  (enpitsu)|Pencil
+おか|おか  (oka)|Hill
+おかね|おかね  (okane)|Money
+おちゃ|おちゃ  (ocha)|Green tea
+おとこ|おとこ  (otoko)|Man
+おはよう|おはよう  (ohayou)|Good morning
+おんな|おんな  (onna)|Woman
+かお|かお  (kao)|Face
+かさ|かさ  (kasa)|Umbrella
+かぜ|かぜ  (kaze)|Wind
+かみ|かみ  (kami)|Paper
+かめ|かめ  (kame)|Turtle
+かわ|かわ  (kawa)|River
+がっこう|がっこう  (gakkou)|School
+きた|きた  (kita)|North
+きつね|きつね  (kitsune)|Fox
+きょう|きょう  (kyou)|Today
+くち|くち  (kuchi)|Mouth
+くつ|くつ  (kutsu)|Shoes
+くま|くま  (kuma)|Bear
+くも|くも  (kumo)|Cloud
+くるま|くるま  (kuruma)|Car
+けむり|けむり  (kemuri)|Smoke
+こえ|こえ  (koe)|Voice
+ここ|ここ  (koko)|Here
+こども|こども  (kodomo)|Child
+こめ|こめ  (kome)|Rice
+さかな|さかな  (sakana)|Fish
+さくら|さくら  (sakura)|Cherry blossom
+さとう|さとう  (satou)|Sugar
+さる|さる  (saru)|Monkey
+しお|しお  (shio)|Salt
+しか|しか  (shika)|Deer
+した|した  (shita)|Below, under
+すし|すし  (sushi)|Sushi
+すな|すな  (suna)|Sand
+せかい|せかい  (sekai)|World
+そと|そと  (soto)|Outside
+そら|そら  (sora)|Sky
+たこ|たこ  (tako)|Octopus
+たまご|たまご  (tamago)|Egg
+ちず|ちず  (chizu)|Map
+つき|つき  (tsuki)|Moon
+つくえ|つくえ  (tsukue)|Desk
+てがみ|てがみ  (tegami)|Letter (mail)
+でんしゃ|でんしゃ  (densha)|Train
+とけい|とけい  (tokei)|Clock, watch
+ともだち|ともだち  (tomodachi)|Friend
+とり|とり  (tori)|Bird
+なつ|なつ  (natsu)|Summer
+にく|にく  (niku)|Meat
+にわ|にわ  (niwa)|Garden
+ねこ|ねこ  (neko)|Cat
+はこ|はこ  (hako)|Box
+はし|はし  (hashi)|Chopsticks
+はな|はな  (hana)|Flower
+はる|はる  (haru)|Spring
+ひかり|ひかり  (hikari)|Light
+ひこうき|ひこうき  (hikouki)|Airplane
+ひと|ひと  (hito)|Person
+ふね|ふね  (fune)|Ship, boat
+ふゆ|ふゆ  (fuyu)|Winter
+ほし|ほし  (hoshi)|Star
+ほん|ほん  (hon)|Book
+まど|まど  (mado)|Window
+みず|みず  (mizu)|Water
+みち|みち  (michi)|Road, path
+みみ|みみ  (mimi)|Ear
+むし|むし  (mushi)|Insect
+もり|もり  (mori)|Forest
+やま|やま  (yama)|Mountain
+ゆき|ゆき  (yuki)|Snow
+ゆめ|ゆめ  (yume)|Dream
+よる|よる  (yoru)|Night
+りんご|りんご  (ringo)|Apple
+わたし|わたし  (watashi)|I, me

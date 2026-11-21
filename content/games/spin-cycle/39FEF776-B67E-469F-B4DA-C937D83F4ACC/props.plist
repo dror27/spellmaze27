@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Spin Cycle</string>
+	<key>description</key>
+	<string>The board turns with every letter, tap, mistake ...</string>
+	<key>levels</key>
+	<array>
+		<string>264A6D20-A447-46B5-BE68-FDE090F1DB4F</string>
+		<string>7FC4702B-8970-459F-94C0-50821512E574</string>
+		<string>E8567AD8-6C12-40D2-8E59-3F41128F392E</string>
+		<string>AB83F038-7A91-4656-A3A4-BA17F330A0C9</string>
+		<string>6DD59E85-237E-4018-A5B7-A04E1EA073A3</string>
+		<string>F7608D6C-4315-4AE7-A534-6EFBAEFD8044</string>
+	</array>
+	<key>264A6D20-A447-46B5-BE68-FDE090F1DB4F</key>
+	<dict>
+		<key>name</key>
+		<string>Quarter Turns</string>
+		<key>description</key>
+		<string>A quarter turn with every new letter</string>
+		<key>prefs-data</key>
+		<dict>
+			<key>allow_play_pause</key>
+			<true/>
+			<key>allow_show_hint</key>
+			<true/>
+			<key>logic_random</key>
+			<true/>
+			<key>logic_viewtrans</key>
+			<true/>
+			<key>logic_viewtrans_slices</key>
+			<integer>4</integer>
+			<key>logic_decorator</key>
+			<true/>
+			<key>logic_decorator_bomb_prob</key>
+			<real>0.08</real>
+			<key>logic_decorator_coin_prob</key>
+			<real>0.0</real>
+			<key>logic_decorator_apple_prob</key>
+			<real>0.0</real>
+			<key>dispenser_joker_prob</key>
+			<real>0.03</real>
+			<key>valid_min_word_size</key>
+			<integer>3</integer>
+			<key>joker_image_hints</key>
+			<true/>
+			<key>joker_image_rewards</key>
+			<true/>
+			<key>board_override</key>
+			<true/>
+			<key>board_formula</key>
+			<string>0 0 60 60 4 4</string>
+			<key>logic_viewtrans_event</key>
+			<string>pieceDispensed:</string>
+			<key>dispenser_tick_period</key>
+			<real>2.2</real>
+			<key>dispenser_symbol_count</key>
+			<integer>60</integer>
+		</dict>
+		<key>help-splash</key>
+		<dict>
+			<key>title</key>
+			<string>Spin Cycle</string>
+			<key>text</key>
+			<string>In this game the board turns - and every level turns it at a different moment.
+-
+Here: a quarter turn with every new letter. Spell words of 3 letters or more.</string>
+			<key>auto-show</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>7FC4702B-8970-459F-94C0-50821512E574</key>
+	<dict>
+		<key>name</key>
+		<string>Half Turns</string>
+		<key>description</key>
+		<string>Upside down, and back again</string>
+		<key>prefs-data</key>
+		<dict>
+			<key>allow_play_pause</key>
+			<true/>
+			<key>allow_show_hint</key>
+			<true/>
+			<key>logic_random</key>
+			<true/>
+			<key>logic_viewtrans</key>
+			<true/>
+			<key>logic_viewtrans_slices</key>
+			<integer>2</integer>
+			<key>logic_decorator</key>
+			<true/>
+			<key>logic_decorator_bomb_prob</key>
+			<real>0.08</real>
+			<key>logic_decorator_coin_prob</key>
+			<real>0.0</real>
+			<key>logic_decorator_apple_prob</key>
+			<real>0.0</real>
+			<key>dispenser_joker_prob</key>
+			<real>0.03</real>
+			<key>valid_min_word_size</key>
+			<integer>3</integer>
+			<key>joker_image_hints</key>
+			<true/>
+			<key>joker_image_rewards</key>
+			<true/>
+			<key>board_override</key>
+			<true/>
+			<key>board_formula</key>
+			<string>0 0 60 60 5 5</string>
+			<key>logic_viewtrans_event</key>
+			<string>pieceDispensed:</string>
+			<key>dispenser_tick_period</key>
+			<real>1.8</real>
+			<key>dispenser_symbol_count</key>
+			<integer>80</integer>
+			<key>score_factor</key>
+			<real>1.25</real>
+		</dict>
+	</dict>
+	<key>E8567AD8-6C12-40D2-8E59-3F41128F392E</key>
+	<dict>
+		<key>name</key>
+		<string>Touch and Turn</string>
+		<key>description</key>
+		<string>Every letter you tap turns the board</string>
+		<key>prefs-data</key>
+		<dict>
+			<key>allow_play_pause</key>
+			<true/>
+			<key>allow_show_hint</key>
+			<true/>
+			<key>logic_random</key>
+			<true/>
+			<key>logic_viewtrans</key>
+			<true/>
+			<key>logic_viewtrans_slices</key>
+			<integer>4</integer>
+			<key>logic_decorator</key>
+			<true/>
+			<key>logic_decorator_bomb_prob</key>
+			<real>0.08</real>
+			<key>logic_decorator_coin_prob</key>
+			<real>0.0</real>
+			<key>logic_decorator_apple_prob</key>
+			<real>0.0</real>
+			<key>dispenser_joker_prob</key>
+			<real>0.03</real>
+			<key>valid_min_word_size</key>
+			<integer>3</integer>
+			<key>joker_image_hints</key>
+			<true/>
+			<key>joker_image_rewards</key>
+			<true/>
+			<key>board_override</key>
+			<true/>
+			<key>board_formula</key>
+			<string>0 0 60 60 4 4</string>
+			<key>logic_viewtrans_event</key>
+			<string>pieceSelected:</string>
+			<key>dispenser_symbol_count</key>
+			<integer>70</integer>
+			<key>score_factor</key>
+			<real>1.5</real>
+		</dict>
+		<key>help-splash</key>
+		<dict>
+			<key>title</key>
+			<string>Touch and Turn</string>
+			<key>text</key>
+			<string>Now the board turns a quarter every time you tap a letter.
+-
+Keep your eyes on the next letter!</string>
+			<key>auto-show</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>AB83F038-7A91-4656-A3A4-BA17F330A0C9</key>
+	<dict>
+		<key>name</key>
+		<string>Oops</string>
+		<key>description</key>
+		<string>A wrong word turns the board</string>
+		<key>prefs-data</key>
+		<dict>
+			<key>allow_play_pause</key>
+			<true/>
+			<key>allow_show_hint</key>
+			<true/>
+			<key>logic_random</key>
+			<true/>
+			<key>logic_viewtrans</key>
+			<true/>
+			<key>logic_viewtrans_slices</key>
+			<integer>4</integer>
+			<key>logic_decorator</key>
+			<true/>
+			<key>logic_decorator_bomb_prob</key>
+			<real>0.08</real>
+			<key>logic_decorator_coin_prob</key>
+			<real>0.0</real>
+			<key>logic_decorator_apple_prob</key>
+			<real>0.0</real>
+			<key>dispenser_joker_prob</key>
+			<real>0.03</real>
+			<key>valid_min_word_size</key>
+			<integer>4</integer>
+			<key>joker_image_hints</key>
+			<true/>
+			<key>joker_image_rewards</key>
+			<true/>
+			<key>board_override</key>
+			<true/>
+			<key>board_formula</key>
+			<string>0 0 60 60 5 5</string>
+			<key>logic_viewtrans_event</key>
+			<string>invalidWordSelected:</string>
+			<key>dispenser_symbol_count</key>
+			<integer>100</integer>
+			<key>score_factor</key>
+			<real>1.75</real>
+		</dict>
+	</dict>
+	<key>6DD59E85-237E-4018-A5B7-A04E1EA073A3</key>
+	<dict>
+		<key>name</key>
+		<string>Clockwork</string>
+		<key>description</key>
+		<string>The board ticks around like a clock</string>
+		<key>prefs-data</key>
+		<dict>
+			<key>allow_play_pause</key>
+			<true/>
+			<key>allow_show_hint</key>
+			<true/>
+			<key>logic_random</key>
+			<true/>
+			<key>logic_viewtrans</key>
+			<true/>
+			<key>logic_viewtrans_slices</key>
+			<integer>24</integer>
+			<key>logic_decorator</key>
+			<true/>
+			<key>logic_decorator_bomb_prob</key>
+			<real>0.08</real>
+			<key>logic_decorator_coin_prob</key>
+			<real>0.0</real>
+			<key>logic_decorator_apple_prob</key>
+			<real>0.0</real>
+			<key>dispenser_joker_prob</key>
+			<real>0.03</real>
+			<key>valid_min_word_size</key>
+			<integer>3</integer>
+			<key>joker_image_hints</key>
+			<true/>
+			<key>joker_image_rewards</key>
+			<true/>
+			<key>board_override</key>
+			<true/>
+			<key>board_formula</key>
+			<string>0 0 60 60 5 5</string>
+			<key>logic_viewtrans_event</key>
+			<string>onGameTimer</string>
+			<key>dispenser_symbol_count</key>
+			<integer>100</integer>
+			<key>score_factor</key>
+			<real>2.0</real>
+		</dict>
+		<key>help-splash</key>
+		<dict>
+			<key>title</key>
+			<string>Clockwork</string>
+			<key>text</key>
+			<string>The board turns a little every second, all the way around - like the hand of a clock.</string>
+			<key>auto-show</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>F7608D6C-4315-4AE7-A534-6EFBAEFD8044</key>
+	<dict>
+		<key>name</key>
+		<string>Mirror Mirror</string>
+		<key>description</key>
+		<string>Each new letter flips the board</string>
+		<key>prefs-data</key>
+		<dict>
+			<key>allow_play_pause</key>
+			<true/>
+			<key>allow_show_hint</key>
+			<true/>
+			<key>logic_random</key>
+			<true/>
+			<key>logic_viewtrans</key>
+			<true/>
+			<key>logic_viewtrans_slices</key>
+			<integer>0</integer>
+			<key>logic_decorator</key>
+			<true/>
+			<key>logic_decorator_bomb_prob</key>
+			<real>0.08</real>
+			<key>logic_decorator_coin_prob</key>
+			<real>0.0</real>
+			<key>logic_decorator_apple_prob</key>
+			<real>0.0</real>
+			<key>dispenser_joker_prob</key>
+			<real>0.03</real>
+			<key>valid_min_word_size</key>
+			<integer>4</integer>
+			<key>joker_image_hints</key>
+			<true/>
+			<key>joker_image_rewards</key>
+			<true/>
+			<key>board_override</key>
+			<true/>
+			<key>board_formula</key>
+			<string>0 0 60 60 5 5</string>
+			<key>logic_viewtrans_event</key>
+			<string>pieceDispensed:</string>
+			<key>dispenser_tick_period</key>
+			<real>2.0</real>
+			<key>dispenser_symbol_count</key>
+			<integer>100</integer>
+			<key>score_factor</key>
+			<real>2.5</real>
+		</dict>
+	</dict>
+</dict>
+</plist>
