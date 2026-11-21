@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>name</key>
+    <string>German</string>
+    <key>comment</key>
+    <string>Games using the German language</string>
+    <key>items</key>
+    <array>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>728E37BA-D32B-147F-8130-2F8A4CDFE7E8</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>German</string>
+        <key>comment</key>
+        <string>The German Language itself.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>German_item_icon.png</string>
+        <key>icon</key>
+        <string>German_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>German.zip</string>
+        <key>leading-uuid</key>
+        <string>ABC04967-073A-FEB9-663A-34E49A224DED</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>D23AB35E-A6C8-AAA3-7017-CB1A0D4C4D89</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>Flags (German)</string>
+        <key>comment</key>
+        <string>Country Flags in German.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>Flags_German_item_icon.png</string>
+        <key>icon</key>
+        <string>Flags_German_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>Flags_German.zip</string>
+        <key>leading-uuid</key>
+        <string>10746FF7-40AF-5AAB-A3E1-CAB318C591CA</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>E3C241E1-042C-E52D-22C6-CBD2E4ACB402</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>Mammals (German)</string>
+        <key>comment</key>
+        <string>Mammals in German.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>Mammals_German_item_icon.png</string>
+        <key>icon</key>
+        <string>Mammals_German_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>Mammals_German.zip</string>
+        <key>leading-uuid</key>
+        <string>80FCCC1C-F5D3-DA16-2559-BDA9976FDCF8</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>D17D4850-EF8C-11EA-8B6E-0800200C9A66</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>Straight Up (German)</string>
+        <key>comment</key>
+        <string>Play words of increasing lengths.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>Straight_Up_German_item_icon.png</string>
+        <key>icon</key>
+        <string>Straight_Up_German_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>Straight_Up_German.zip</string>
+        <key>leading-uuid</key>
+        <string>D17D4851-EF8C-11EA-8B6E-0800200C9A66</string>
+      </dict>
+    </array>
+  </dict>
+</plist>

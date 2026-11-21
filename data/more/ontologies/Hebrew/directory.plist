@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>name</key>
+    <string>Hebrew</string>
+    <key>comment</key>
+    <string>Games using the Hebrew language</string>
+    <key>items</key>
+    <array>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>07DFE09A-6DE9-11EA-BC55-0242AC130003</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>Hebrew</string>
+        <key>comment</key>
+        <string>The Hebrew Language itself.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>Hebrew_item_icon.png</string>
+        <key>icon</key>
+        <string>Hebrew_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>Hebrew.zip</string>
+        <key>leading-uuid</key>
+        <string>224E7A8E-6DE1-11EA-BC55-0242AC130003</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>FE1E7410-EF8C-11EA-8B6E-0800200C9A66</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>Straight Up (Hebrew)</string>
+        <key>comment</key>
+        <string>Play words of increasing lengths.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>Straight_Up_Hebrew_item_icon.png</string>
+        <key>icon</key>
+        <string>Straight_Up_Hebrew_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>Straight_Up_Hebrew.zip</string>
+        <key>leading-uuid</key>
+        <string>FE1E7411-EF8C-11EA-8B6E-0800200C9A66</string>
+      </dict>
+    </array>
+  </dict>
+</plist>

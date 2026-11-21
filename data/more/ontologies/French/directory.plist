@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>name</key>
+    <string>French</string>
+    <key>comment</key>
+    <string>Games using the French language</string>
+    <key>items</key>
+    <array>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>2B96387C-57B4-1510-1B79-C9352F863D36</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>French</string>
+        <key>comment</key>
+        <string>The French Language itself.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>French_item_icon.png</string>
+        <key>icon</key>
+        <string>French_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>French.zip</string>
+        <key>leading-uuid</key>
+        <string>FEE2A9D8-B3E4-4F2B-FFBB-9465B8961833</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>9AC2078E-FED8-C51E-0D0C-363038F3A580</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>Flags (French)</string>
+        <key>comment</key>
+        <string>Country Flags in French.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>Flags_French_item_icon.png</string>
+        <key>icon</key>
+        <string>Flags_French_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>Flags_French.zip</string>
+        <key>leading-uuid</key>
+        <string>5AE510D9-E435-60F8-3FA1-2C2B2C3205E8</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>07071173-42B4-77BE-E4D5-3B0D69CA3BC1</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>Mammals (French)</string>
+        <key>comment</key>
+        <string>Mammals in French.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>Mammals_French_item_icon.png</string>
+        <key>icon</key>
+        <string>Mammals_French_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>Mammals_French.zip</string>
+        <key>leading-uuid</key>
+        <string>B43F014F-AF8F-0F32-1CCF-C59226A8C37A</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>B56B27E0-EF8C-11EA-8B6E-0800200C9A66</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>Straight Up (French)</string>
+        <key>comment</key>
+        <string>Play words of increasing lengths.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>Straight_Up_French_item_icon.png</string>
+        <key>icon</key>
+        <string>Straight_Up_French_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>Straight_Up_French.zip</string>
+        <key>leading-uuid</key>
+        <string>B56B27E1-EF8C-11EA-8B6E-0800200C9A66</string>
+      </dict>
+    </array>
+  </dict>
+</plist>

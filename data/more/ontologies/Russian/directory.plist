@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>name</key>
+    <string>Russian</string>
+    <key>comment</key>
+    <string>Games using the Russian language</string>
+    <key>items</key>
+    <array>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>91214E9B-FFBF-8BDF-7B11-42BA8685C90C</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>Russian</string>
+        <key>comment</key>
+        <string>The Russian Language itself.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>Russian_item_icon.png</string>
+        <key>icon</key>
+        <string>Russian_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>Russian.zip</string>
+        <key>leading-uuid</key>
+        <string>6CE4909A-2390-67B7-C571-62A017B5CDBD</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>75F9393A-CD51-76BD-71C9-FA6FA20FCD00</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>Flags (Russian)</string>
+        <key>comment</key>
+        <string>Country Flags in Russian.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>Flags_Russian_item_icon.png</string>
+        <key>icon</key>
+        <string>Flags_Russian_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>Flags_Russian.zip</string>
+        <key>leading-uuid</key>
+        <string>711E2512-BA12-84B9-B783-408DD2084B99</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>AFFEA5B0-EF8D-11EA-8B6E-0800200C9A66</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>Straight Up (Russian)</string>
+        <key>comment</key>
+        <string>Play words of increasing lengths.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>Straight_Up_Russian_item_icon.png</string>
+        <key>icon</key>
+        <string>Straight_Up_Russian_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>Straight_Up_Russian.zip</string>
+        <key>leading-uuid</key>
+        <string>B7AEE0E1-EF8D-11EA-8B6E-0800200C9A66</string>
+      </dict>
+    </array>
+  </dict>
+</plist>

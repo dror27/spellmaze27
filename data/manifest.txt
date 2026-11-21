@@ -1,0 +1,27 @@
+# SpellMaze data manifest
+#
+# One entry per line ('#' starts a comment). Entries are loaded in order; later entries take
+# precedence over earlier ones when they hold the same UUID.
+#
+#   <folder>                a folder root holding the original layout <Domain>/<UUID>/props.plist ...
+#                           (Domain: Ontologies, Games, Levels, Brands, Catalogs). Needs a files.txt
+#                           listing - generate it with: tools/make_filelist.sh <folder>
+#   <file>.zip              a zip file, either holding <UUID>/... folders (the domain is detected from
+#                           the content: words.txt => Ontologies, levels => Games, global => Brands)
+#                           or holding <Domain>/<UUID>/... folders
+#   <Domain>:<file>.zip     a zip file whose <UUID>/ folders all belong to the given domain
+#
+# Paths are relative to this file (or absolute http(s) URLs).
+#
+# Zip files can also be imported from within the game (CONF > Import Zip Files ...).
+
+# the content built into the iOS app (SpellMaze 2020)
+Builtin/1329C440-7782-4F3D-A39C-0C9F5E482C38
+
+# additional content, e.g.:
+# zips/StraightUpEnglish.zip
+# Ontologies:zips/FingerSpellingEnglish.zip
+
+# catalog sites to browse for more games, game types and skins (CONF > Game/Game Type/Skin > Get More ...)
+# a site holds <domain>/directory.plist trees (ontologies, games, brands), as built by tools/build_catalog.py
+More: more

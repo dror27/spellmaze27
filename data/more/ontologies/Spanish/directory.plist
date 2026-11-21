@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>name</key>
+    <string>Spanish</string>
+    <key>comment</key>
+    <string>Games using the Spanish language</string>
+    <key>items</key>
+    <array>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>AF4E7E03-7EFF-EC9D-4609-F7D3E0BC24B2</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>Spanish</string>
+        <key>comment</key>
+        <string>The Spanish Language itself.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>Spanish_item_icon.png</string>
+        <key>icon</key>
+        <string>Spanish_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>Spanish.zip</string>
+        <key>leading-uuid</key>
+        <string>119C2BE5-C23E-DCEA-498C-2F37C20585FB</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>BB8F7365-401E-612E-AFF4-7F440E0AE147</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>Flags (Spanish)</string>
+        <key>comment</key>
+        <string>Country Flags in Spanish.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>Flags_Spanish_item_icon.png</string>
+        <key>icon</key>
+        <string>Flags_Spanish_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>Flags_Spanish.zip</string>
+        <key>leading-uuid</key>
+        <string>394D7973-4234-F8F9-D0B2-677AC8360ED0</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>B2F265D5-8136-35BC-8C34-0B561A93D4E7</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>Mammals (Spanish)</string>
+        <key>comment</key>
+        <string>Mammals in Spanish.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>Mammals_Spanish_item_icon.png</string>
+        <key>icon</key>
+        <string>Mammals_Spanish_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>Mammals_Spanish.zip</string>
+        <key>leading-uuid</key>
+        <string>4CE75E39-9979-7E3D-3940-D6DB67110390</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>E1F8A160-EF88-11EA-8B6E-0800200C9A66</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>Straight Up (Spanish)</string>
+        <key>comment</key>
+        <string>Play words of increasing lengths.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>Straight_Up_Spanish_item_icon.png</string>
+        <key>icon</key>
+        <string>Straight_Up_Spanish_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>Straight_Up_Spanish.zip</string>
+        <key>leading-uuid</key>
+        <string>EC8E7050-EF88-11EA-8B6E-0800200C9A66</string>
+      </dict>
+    </array>
+  </dict>
+</plist>

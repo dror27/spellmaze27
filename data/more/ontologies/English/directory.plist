@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>name</key>
+    <string>English</string>
+    <key>comment</key>
+    <string>Games using the English language</string>
+    <key>items</key>
+    <array>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>F8116CEC-BE03-DA6B-20A9-C009C1BEDF09</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>English</string>
+        <key>comment</key>
+        <string>The English Language itself.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>English_item_icon.png</string>
+        <key>icon</key>
+        <string>English_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>English.zip</string>
+        <key>leading-uuid</key>
+        <string>65F30756-43F1-40EA-B8B8-F8699B933FBD</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>AE0E4C6A-B035-4215-8DE3-E4F08247DD84</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>Flags (English)</string>
+        <key>comment</key>
+        <string>Country Flags in English.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>Flags_English_item_icon.png</string>
+        <key>icon</key>
+        <string>Flags_English_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>Flags_English.zip</string>
+        <key>leading-uuid</key>
+        <string>15652B7B-1004-48EB-8615-AF11EDFC840F</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>7D723AD9-E9B4-F689-B526-60F46078B2EC</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>Mammals (English)</string>
+        <key>comment</key>
+        <string>Mammals in English.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>Mammals_English_item_icon.png</string>
+        <key>icon</key>
+        <string>Mammals_English_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>Mammals_English.zip</string>
+        <key>leading-uuid</key>
+        <string>838D8AA4-033D-6F64-7E07-93ED53AEFFE0</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>CC53A300-EE02-11EA-8B6E-0800200C9A66</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>Finger Spelling (English)</string>
+        <key>comment</key>
+        <string>Finger Spelling in English.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>Finger_Spelling_English_item_icon.png</string>
+        <key>icon</key>
+        <string>Finger_Spelling_English_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>Finger_Spelling_English.zip</string>
+        <key>leading-uuid</key>
+        <string>37F1F987-BA64-B09A-4D12-33ABEC7B596C</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>9D9201C0-EF82-11EA-8B6E-0800200C9A66</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>Straight Up (English)</string>
+        <key>comment</key>
+        <string>Play words of increasing lengths.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>Straight_Up_English_item_icon.png</string>
+        <key>icon</key>
+        <string>Straight_Up_English_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>Straight_Up_English.zip</string>
+        <key>leading-uuid</key>
+        <string>B2D0D980-EF82-11EA-8B6E-0800200C9A66</string>
+      </dict>
+    </array>
+  </dict>
+</plist>

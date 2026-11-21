@@ -1,0 +1,13 @@
+{
+	"name": "SpellMaze",
+	"short_name": "SpellMaze",
+	"start_url": "./index.html",
+	"display": "standalone",
+	"orientation": "portrait",
+	"background_color": "#000000",
+	"theme_color": "#000000",
+	"icons": [
+		{ "src": "assets/images/ProgramIcon1.png", "sizes": "57x57", "type": "image/png" },
+		{ "src": "assets/images/spellmaze_logo_64x64.png", "sizes": "64x64", "type": "image/png" }
+	]
+}

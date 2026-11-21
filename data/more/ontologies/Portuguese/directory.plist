@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>name</key>
+    <string>Portuguese</string>
+    <key>comment</key>
+    <string>Games using the Portuguese language</string>
+    <key>items</key>
+    <array>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>D3DFA01C-B386-F6BD-CD84-BE5915486032</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>Portuguese</string>
+        <key>comment</key>
+        <string>The Portuguese Language itself.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>Portuguese_item_icon.png</string>
+        <key>icon</key>
+        <string>Portuguese_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>Portuguese.zip</string>
+        <key>leading-uuid</key>
+        <string>58DB755D-C7C8-4FB1-B648-A987A5952B04</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>D57288F0-1C11-0F50-BEEB-478CB18A7F6B</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>Flags (Portuguese)</string>
+        <key>comment</key>
+        <string>Country Flags in Portuguese.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>Flags_Portuguese_item_icon.png</string>
+        <key>icon</key>
+        <string>Flags_Portuguese_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>Flags_Portuguese.zip</string>
+        <key>leading-uuid</key>
+        <string>1A9DFAEC-93CC-3A99-8DF5-EB3189A72DE2</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>69C2B3F6-1ABD-D776-D72B-70AB5746CE2F</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>Mammals (Portuguese)</string>
+        <key>comment</key>
+        <string>Mammals in Portuguese.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>Mammals_Portuguese_item_icon.png</string>
+        <key>icon</key>
+        <string>Mammals_Portuguese_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>Mammals_Portuguese.zip</string>
+        <key>leading-uuid</key>
+        <string>2D05DBFE-6404-8E4F-AC60-E183C42F6A35</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>866DC730-EF8D-11EA-8B6E-0800200C9A66</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>Straight Up (English)</string>
+        <key>comment</key>
+        <string>Play words of increasing lengths.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>Straight_Up_English_item_icon.png</string>
+        <key>icon</key>
+        <string>Straight_Up_English_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>Straight_Up_English.zip</string>
+        <key>leading-uuid</key>
+        <string>866DC731-EF8D-11EA-8B6E-0800200C9A66</string>
+      </dict>
+    </array>
+  </dict>
+</plist>

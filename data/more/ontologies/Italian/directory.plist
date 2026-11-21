@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>name</key>
+    <string>Italian</string>
+    <key>comment</key>
+    <string>Games using the Italian language</string>
+    <key>items</key>
+    <array>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>5551F867-A4CF-18E8-D9FD-FE27E691AE66</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>Italian</string>
+        <key>comment</key>
+        <string>The Italian Language itself.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>Italian_item_icon.png</string>
+        <key>icon</key>
+        <string>Italian_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>Italian.zip</string>
+        <key>leading-uuid</key>
+        <string>07915D39-BC6A-03CC-417C-3485C2857959</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>42D2FDB0-6B11-1BF3-C3C8-A0756C327A6D</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>Flags (Italian)</string>
+        <key>comment</key>
+        <string>Country Flags in Italian.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>Flags_Italian_item_icon.png</string>
+        <key>icon</key>
+        <string>Flags_Italian_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>Flags_Italian.zip</string>
+        <key>leading-uuid</key>
+        <string>302D3F44-BF46-C9B6-2C71-9FFDED454C82</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>0F56335A-201B-248F-02AB-0777F41EC938</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>Mammals (Italian)</string>
+        <key>comment</key>
+        <string>Mammals in Italian.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>Mammals_Italian_item_icon.png</string>
+        <key>icon</key>
+        <string>Mammals_Italian_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>Mammals_Italian.zip</string>
+        <key>leading-uuid</key>
+        <string>EEBE172C-B298-ABEE-42C6-7E50158C8225</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>item</string>
+        <key>uuid</key>
+        <string>25C1DA70-EF8D-11EA-8B6E-0800200C9A66</string>
+        <key>version</key>
+        <string>0.1</string>
+        <key>name</key>
+        <string>Straight Up (Italian)</string>
+        <key>comment</key>
+        <string>Play words of increasing lengths.
+by Dror Kessler.
+Copyright © 2020</string>
+        <key>item-icon</key>
+        <string>Straight_Up_Italian_item_icon.png</string>
+        <key>icon</key>
+        <string>Straight_Up_Italian_item_poster.png</string>
+        <key>domain</key>
+        <string>Ontologies</string>
+        <key>url</key>
+        <string>Straight_Up_Italian.zip</string>
+        <key>leading-uuid</key>
+        <string>25C1DA71-EF8D-11EA-8B6E-0800200C9A66</string>
+      </dict>
+    </array>
+  </dict>
+</plist>

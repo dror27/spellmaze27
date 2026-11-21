@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>name</key>
+    <string>SpellMaze Games</string>
+    <key>comment</key>
+    <string>The SpellMaze Main Catalog</string>
+    <key>items</key>
+    <array>
+      <dict>
+        <key>type</key>
+        <string>directory</string>
+        <key>uuid</key>
+        <string>E098A529-2E16-417D-AD66-E810F7E8E713</string>
+        <key>version</key>
+        <string>0.0</string>
+        <key>name</key>
+        <string>English</string>
+        <key>comment</key>
+        <string>Games using the English language</string>
+        <key>item-icon</key>
+        <string>English/English_directory_icon.png</string>
+        <key>url</key>
+        <string>English/directory.plist</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>directory</string>
+        <key>uuid</key>
+        <string>797FAFA8-2091-0878-9B0C-888E395D0FF7</string>
+        <key>version</key>
+        <string>0.0</string>
+        <key>name</key>
+        <string>Spanish</string>
+        <key>comment</key>
+        <string>Games using the Spanish language</string>
+        <key>item-icon</key>
+        <string>Spanish/Spanish_directory_icon.png</string>
+        <key>url</key>
+        <string>Spanish/directory.plist</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>directory</string>
+        <key>uuid</key>
+        <string>B2BB5705-75DA-25CC-7484-E53EAD0D478C</string>
+        <key>version</key>
+        <string>0.0</string>
+        <key>name</key>
+        <string>French</string>
+        <key>comment</key>
+        <string>Games using the French language</string>
+        <key>item-icon</key>
+        <string>French/French_directory_icon.png</string>
+        <key>url</key>
+        <string>French/directory.plist</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>directory</string>
+        <key>uuid</key>
+        <string>66664725-BCBB-C512-8BB1-9D54D7FF2173</string>
+        <key>version</key>
+        <string>0.0</string>
+        <key>name</key>
+        <string>Italian</string>
+        <key>comment</key>
+        <string>Games using the Italian language</string>
+        <key>item-icon</key>
+        <string>Italian/Italian_directory_icon.png</string>
+        <key>url</key>
+        <string>Italian/directory.plist</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>directory</string>
+        <key>uuid</key>
+        <string>261BE11E-585B-0249-858C-FE1B7318F66F</string>
+        <key>version</key>
+        <string>0.0</string>
+        <key>name</key>
+        <string>German</string>
+        <key>comment</key>
+        <string>Games using the German language</string>
+        <key>item-icon</key>
+        <string>German/German_directory_icon.png</string>
+        <key>url</key>
+        <string>German/directory.plist</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>directory</string>
+        <key>uuid</key>
+        <string>5D1275D1-D647-B1EB-53F2-9BAC89FC7D4D</string>
+        <key>version</key>
+        <string>0.0</string>
+        <key>name</key>
+        <string>Portuguese</string>
+        <key>comment</key>
+        <string>Games using the Portuguese language</string>
+        <key>item-icon</key>
+        <string>Portuguese/Portuguese_directory_icon.png</string>
+        <key>url</key>
+        <string>Portuguese/directory.plist</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>directory</string>
+        <key>uuid</key>
+        <string>26B49F16-F90B-2EA3-4701-66B15BBCB866</string>
+        <key>version</key>
+        <string>0.0</string>
+        <key>name</key>
+        <string>Russian</string>
+        <key>comment</key>
+        <string>Games using the Russian language</string>
+        <key>item-icon</key>
+        <string>Russian/Russian_directory_icon.png</string>
+        <key>url</key>
+        <string>Russian/directory.plist</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>directory</string>
+        <key>uuid</key>
+        <string>8923C061-1808-1BE7-4419-1A46D233A913</string>
+        <key>version</key>
+        <string>0.0</string>
+        <key>name</key>
+        <string>Hebrew</string>
+        <key>comment</key>
+        <string>Games using the Hebrew language</string>
+        <key>item-icon</key>
+        <string>Hebrew/Hebrew_directory_icon.png</string>
+        <key>url</key>
+        <string>Hebrew/directory.plist</string>
+      </dict>
+      <dict>
+        <key>type</key>
+        <string>directory</string>
+        <key>uuid</key>
+        <string>8D4C9514-6DE1-11EA-BC55-0242AC130003</string>
+        <key>version</key>
+        <string>0.0</string>
+        <key>name</key>
+        <string>Arabic</string>
+        <key>comment</key>
+        <string>Games using the Arabic language</string>
+        <key>item-icon</key>
+        <string>Arabic/Arabic_directory_icon.png</string>
+        <key>url</key>
+        <string>Arabic/directory.plist</string>
+      </dict>
+    </array>
+  </dict>
+</plist>
