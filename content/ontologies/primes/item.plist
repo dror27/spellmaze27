@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Primes</string>
+	<key>comment</key>
+	<string>Compose prime numbers from digit tiles: every prime
+from 11 to 99,991, with its own Prime Time game.</string>
+	<key>version</key>
+	<real>1.0</real>
+	<key>filename</key>
+	<string>Primes</string>
+	<key>uuid</key>
+	<string>A7CA5CC9-48D6-4BBA-B84F-D4A189F892A8</string>
+	<key>embed-game</key>
+	<string>prime-time</string>
+</dict>
+</plist>

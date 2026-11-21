@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>SpellMaze 2026</string>
+	<key>comment</key>
+	<string>New word lists: phonics, spelling bees, equations, primes</string>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>type</key>
+			<string>item</string>
+			<key>uuid</key>
+			<string>83769C7D-1636-4109-BD12-729AC7FD7168</string>
+			<key>version</key>
+			<real>1.0</real>
+			<key>name</key>
+			<string>Equations</string>
+			<key>comment</key>
+			<string>Build true sums, differences and products
+from digit and sign tiles (numbers up to 12).</string>
+			<key>item-icon</key>
+			<string>Equations_item_icon.png</string>
+			<key>icon</key>
+			<string>Equations_item_poster.png</string>
+			<key>domain</key>
+			<string>Ontologies</string>
+			<key>url</key>
+			<string>Equations.zip</string>
+			<key>leading-uuid</key>
+			<string>DFC2155B-6578-405D-BE1B-ADB8220195BB</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>item</string>
+			<key>uuid</key>
+			<string>3248716F-742A-4B61-AE48-A0CE5768E0CB</string>
+			<key>version</key>
+			<real>1.0</real>
+			<key>name</key>
+			<string>Phonics</string>
+			<key>comment</key>
+			<string>88 three-letter words for early readers,
+16 of them with pictures. Plays with the Kids game.</string>
+			<key>item-icon</key>
+			<string>Phonics_item_icon.png</string>
+			<key>icon</key>
+			<string>Phonics_item_poster.png</string>
+			<key>domain</key>
+			<string>Ontologies</string>
+			<key>url</key>
+			<string>Phonics.zip</string>
+			<key>leading-uuid</key>
+			<string>20C3A2C9-5728-495A-840C-5C1D791D49D0</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>item</string>
+			<key>uuid</key>
+			<string>A7CA5CC9-48D6-4BBA-B84F-D4A189F892A8</string>
+			<key>version</key>
+			<real>1.0</real>
+			<key>name</key>
+			<string>Primes</string>
+			<key>comment</key>
+			<string>Compose prime numbers from digit tiles: every prime
+from 11 to 99,991, with its own Prime Time game.</string>
+			<key>item-icon</key>
+			<string>Primes_item_icon.png</string>
+			<key>icon</key>
+			<string>Primes_item_poster.png</string>
+			<key>domain</key>
+			<string>Ontologies</string>
+			<key>url</key>
+			<string>Primes.zip</string>
+			<key>leading-uuid</key>
+			<string>56DF68FB-2357-46E1-8816-E3610FBFA2C3</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>item</string>
+			<key>uuid</key>
+			<string>B6DEF2FF-9D0B-4FC2-A9B9-BAAADDB8FA99</string>
+			<key>version</key>
+			<real>1.0</real>
+			<key>name</key>
+			<string>Spelling Bee: Grade 1</string>
+			<key>comment</key>
+			<string>30 grade 1 spelling words, each with its meaning.
+Plays with the Spelling Bee game.</string>
+			<key>item-icon</key>
+			<string>Spelling_Bee_Grade_1_item_icon.png</string>
+			<key>icon</key>
+			<string>Spelling_Bee_Grade_1_item_poster.png</string>
+			<key>domain</key>
+			<string>Ontologies</string>
+			<key>url</key>
+			<string>Spelling_Bee_Grade_1.zip</string>
+			<key>leading-uuid</key>
+			<string>E37650BC-BCFF-4A62-9578-5A16F94FCD39</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>item</string>
+			<key>uuid</key>
+			<string>BC4D0B96-1AA6-497D-89CE-E9C61AD87E66</string>
+			<key>version</key>
+			<real>1.0</real>
+			<key>name</key>
+			<string>Spelling Bee: Grade 3</string>
+			<key>comment</key>
+			<string>30 grade 3 spelling words, each with its meaning.
+Plays with the Spelling Bee game.</string>
+			<key>item-icon</key>
+			<string>Spelling_Bee_Grade_3_item_icon.png</string>
+			<key>icon</key>
+			<string>Spelling_Bee_Grade_3_item_poster.png</string>
+			<key>domain</key>
+			<string>Ontologies</string>
+			<key>url</key>
+			<string>Spelling_Bee_Grade_3.zip</string>
+			<key>leading-uuid</key>
+			<string>49712AE8-C748-4911-AEEE-FE607816291E</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>item</string>
+			<key>uuid</key>
+			<string>B0BE4F5D-A4A0-4183-91F1-9788BED19DB9</string>
+			<key>version</key>
+			<real>1.0</real>
+			<key>name</key>
+			<string>Spelling Bee: Grade 5</string>
+			<key>comment</key>
+			<string>30 grade 5 spelling words, each with its meaning.
+Plays with the Spelling Bee game.</string>
+			<key>item-icon</key>
+			<string>Spelling_Bee_Grade_5_item_icon.png</string>
+			<key>icon</key>
+			<string>Spelling_Bee_Grade_5_item_poster.png</string>
+			<key>domain</key>
+			<string>Ontologies</string>
+			<key>url</key>
+			<string>Spelling_Bee_Grade_5.zip</string>
+			<key>leading-uuid</key>
+			<string>0A1AFCD9-E3B1-47F5-A768-BB80A1259153</string>
+		</dict>
+	</array>
+</dict>
+</plist>

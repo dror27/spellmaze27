@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Spelling Bee: Grade 5</string>
+	<key>comment</key>
+	<string>30 grade 5 spelling words, each with its meaning.
+Plays with the Spelling Bee game.</string>
+	<key>version</key>
+	<real>1.0</real>
+	<key>filename</key>
+	<string>Spelling_Bee_Grade_5</string>
+	<key>uuid</key>
+	<string>B0BE4F5D-A4A0-4183-91F1-9788BED19DB9</string>
+	<key>embed-game</key>
+	<string>spelling-bee</string>
+</dict>
+</plist>

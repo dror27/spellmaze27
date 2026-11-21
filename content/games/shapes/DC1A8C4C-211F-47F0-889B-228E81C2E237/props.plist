@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Shapes</string>
+	<key>description</key>
+	<string>Boards in every shape</string>
+	<key>levels</key>
+	<array>
+		<string>693A6643-BA1D-47EA-9752-7A369DA32E4A</string>
+		<string>5E17A175-E8EA-4ECF-8CF7-7FC21D21F164</string>
+		<string>60C8971C-38B4-4DD9-8C39-BDDB7A4316A2</string>
+		<string>2B36214A-09F0-45B6-95FE-7CD38D37EA50</string>
+		<string>2C5FC2B1-25CE-41F0-87F2-3E9EBDABA362</string>
+		<string>73ABD616-F073-45B5-A20B-E4A53ACC8C73</string>
+		<string>C6C8BF78-2099-4432-BD5C-3DB19E7822E9</string>
+		<string>BFA57A62-F4A4-464C-99A1-84AF9970E663</string>
+	</array>
+	<key>693A6643-BA1D-47EA-9752-7A369DA32E4A</key>
+	<dict>
+		<key>name</key>
+		<string>Plus</string>
+		<key>description</key>
+		<string>A plus-shaped board</string>
+		<key>prefs-data</key>
+		<dict>
+			<key>allow_play_pause</key>
+			<true/>
+			<key>allow_show_hint</key>
+			<true/>
+			<key>board_override</key>
+			<true/>
+			<key>logic_random</key>
+			<true/>
+			<key>logic_decorator</key>
+			<true/>
+			<key>logic_decorator_bomb_prob</key>
+			<real>0.1</real>
+			<key>logic_decorator_coin_prob</key>
+			<real>0.0</real>
+			<key>logic_decorator_apple_prob</key>
+			<real>0.0</real>
+			<key>dispenser_joker_prob</key>
+			<real>0.03</real>
+			<key>valid_min_word_size</key>
+			<integer>3</integer>
+			<key>joker_image_hints</key>
+			<true/>
+			<key>joker_image_rewards</key>
+			<true/>
+			<key>board_formula</key>
+			<string>120 0 60 60 2 2 0.4,0.7,1.0,1.0
+0 120 60 60 6 2 1.0,0.8,0.3,1.0
+120 240 60 60 2 2 0.4,0.7,1.0,1.0</string>
+			<key>dispenser_symbol_count</key>
+			<integer>90</integer>
+			<key>score_factor</key>
+			<real>1.0</real>
+		</dict>
+		<key>help-splash</key>
+		<dict>
+			<key>title</key>
+			<string>Shapes</string>
+			<key>text</key>
+			<string>Every level has a board of a different shape.
+-
+Letters fall anywhere on it; spell words of 3 letters or more.</string>
+			<key>auto-show</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>5E17A175-E8EA-4ECF-8CF7-7FC21D21F164</key>
+	<dict>
+		<key>name</key>
+		<string>Ring</string>
+		<key>description</key>
+		<string>An empty middle</string>
+		<key>prefs-data</key>
+		<dict>
+			<key>allow_play_pause</key>
+			<true/>
+			<key>allow_show_hint</key>
+			<true/>
+			<key>board_override</key>
+			<true/>
+			<key>logic_random</key>
+			<true/>
+			<key>logic_decorator</key>
+			<true/>
+			<key>logic_decorator_bomb_prob</key>
+			<real>0.1</real>
+			<key>logic_decorator_coin_prob</key>
+			<real>0.0</real>
+			<key>logic_decorator_apple_prob</key>
+			<real>0.0</real>
+			<key>dispenser_joker_prob</key>
+			<real>0.03</real>
+			<key>valid_min_word_size</key>
+			<integer>3</integer>
+			<key>joker_image_hints</key>
+			<true/>
+			<key>joker_image_rewards</key>
+			<true/>
+			<key>board_formula</key>
+			<string>0 0 60 60 6 1
+0 60 60 60 1 4
+300 60 60 60 1 4
+0 300 60 60 6 1</string>
+			<key>dispenser_symbol_count</key>
+			<integer>100</integer>
+			<key>score_factor</key>
+			<real>1.25</real>
+		</dict>
+	</dict>
+	<key>60C8971C-38B4-4DD9-8C39-BDDB7A4316A2</key>
+	<dict>
+		<key>name</key>
+		<string>Staircase</string>
+		<key>description</key>
+		<string>Three steps</string>
+		<key>prefs-data</key>
+		<dict>
+			<key>allow_play_pause</key>
+			<true/>
+			<key>allow_show_hint</key>
+			<true/>
+			<key>board_override</key>
+			<true/>
+			<key>logic_random</key>
+			<true/>
+			<key>logic_decorator</key>
+			<true/>
+			<key>logic_decorator_bomb_prob</key>
+			<real>0.1</real>
+			<key>logic_decorator_coin_prob</key>
+			<real>0.0</real>
+			<key>logic_decorator_apple_prob</key>
+			<real>0.0</real>
+			<key>dispenser_joker_prob</key>
+			<real>0.03</real>
+			<key>valid_min_word_size</key>
+			<integer>3</integer>
+			<key>joker_image_hints</key>
+			<true/>
+			<key>joker_image_rewards</key>
+			<true/>
+			<key>board_formula</key>
+			<string>0 0 60 60 2 2
+120 120 60 60 2 2
+240 240 60 60 2 2</string>
+			<key>dispenser_symbol_count</key>
+			<integer>80</integer>
+			<key>score_factor</key>
+			<real>1.5</real>
+		</dict>
+	</dict>
+	<key>2B36214A-09F0-45B6-95FE-7CD38D37EA50</key>
+	<dict>
+		<key>name</key>
+		<string>Diamond</string>
+		<key>description</key>
+		<string>A diamond</string>
+		<key>prefs-data</key>
+		<dict>
+			<key>allow_play_pause</key>
+			<true/>
+			<key>allow_show_hint</key>
+			<true/>
+			<key>board_override</key>
+			<true/>
+			<key>logic_random</key>
+			<true/>
+			<key>logic_decorator</key>
+			<true/>
+			<key>logic_decorator_bomb_prob</key>
+			<real>0.1</real>
+			<key>logic_decorator_coin_prob</key>
+			<real>0.0</real>
+			<key>logic_decorator_apple_prob</key>
+			<real>0.0</real>
+			<key>dispenser_joker_prob</key>
+			<real>0.03</real>
+			<key>valid_min_word_size</key>
+			<integer>3</integer>
+			<key>joker_image_hints</key>
+			<true/>
+			<key>joker_image_rewards</key>
+			<true/>
+			<key>board_formula</key>
+			<string>120 0 60 60 2 1
+60 60 60 60 4 1
+0 120 60 60 6 2
+60 240 60 60 4 1
+120 300 60 60 2 1</string>
+			<key>dispenser_symbol_count</key>
+			<integer>110</integer>
+			<key>score_factor</key>
+			<real>1.75</real>
+		</dict>
+	</dict>
+	<key>2C5FC2B1-25CE-41F0-87F2-3E9EBDABA362</key>
+	<dict>
+		<key>name</key>
+		<string>Hourglass</string>
+		<key>description</key>
+		<string>Narrow in the middle</string>
+		<key>prefs-data</key>
+		<dict>
+			<key>allow_play_pause</key>
+			<true/>
+			<key>allow_show_hint</key>
+			<true/>
+			<key>board_override</key>
+			<true/>
+			<key>logic_random</key>
+			<true/>
+			<key>logic_decorator</key>
+			<true/>
+			<key>logic_decorator_bomb_prob</key>
+			<real>0.1</real>
+			<key>logic_decorator_coin_prob</key>
+			<real>0.0</real>
+			<key>logic_decorator_apple_prob</key>
+			<real>0.0</real>
+			<key>dispenser_joker_prob</key>
+			<real>0.03</real>
+			<key>valid_min_word_size</key>
+			<integer>3</integer>
+			<key>joker_image_hints</key>
+			<true/>
+			<key>joker_image_rewards</key>
+			<true/>
+			<key>board_formula</key>
+			<string>0 0 60 60 6 1
+60 60 60 60 4 1
+120 120 60 60 2 2
+60 240 60 60 4 1
+0 300 60 60 6 1</string>
+			<key>dispenser_symbol_count</key>
+			<integer>110</integer>
+			<key>score_factor</key>
+			<real>2.0</real>
+		</dict>
+	</dict>
+	<key>73ABD616-F073-45B5-A20B-E4A53ACC8C73</key>
+	<dict>
+		<key>name</key>
+		<string>Islands</string>
+		<key>description</key>
+		<string>Two islands of big tiles</string>
+		<key>prefs-data</key>
+		<dict>
+			<key>allow_play_pause</key>
+			<true/>
+			<key>allow_show_hint</key>
+			<true/>
+			<key>board_override</key>
+			<true/>
+			<key>logic_random</key>
+			<true/>
+			<key>logic_decorator</key>
+			<true/>
+			<key>logic_decorator_bomb_prob</key>
+			<real>0.1</real>
+			<key>logic_decorator_coin_prob</key>
+			<real>0.0</real>
+			<key>logic_decorator_apple_prob</key>
+			<real>0.0</real>
+			<key>dispenser_joker_prob</key>
+			<real>0.03</real>
+			<key>valid_min_word_size</key>
+			<integer>3</integer>
+			<key>joker_image_hints</key>
+			<true/>
+			<key>joker_image_rewards</key>
+			<true/>
+			<key>board_formula</key>
+			<string>0 0 90 90 2 2 0.5,0.9,0.6,1.0
+180 180 90 90 2 2 0.9,0.6,0.5,1.0</string>
+			<key>dispenser_symbol_count</key>
+			<integer>80</integer>
+			<key>score_factor</key>
+			<real>2.25</real>
+		</dict>
+	</dict>
+	<key>C6C8BF78-2099-4432-BD5C-3DB19E7822E9</key>
+	<dict>
+		<key>name</key>
+		<string>Towers</string>
+		<key>description</key>
+		<string>Two tall towers</string>
+		<key>prefs-data</key>
+		<dict>
+			<key>allow_play_pause</key>
+			<true/>
+			<key>allow_show_hint</key>
+			<true/>
+			<key>board_override</key>
+			<true/>
+			<key>logic_random</key>
+			<true/>
+			<key>logic_decorator</key>
+			<true/>
+			<key>logic_decorator_bomb_prob</key>
+			<real>0.1</real>
+			<key>logic_decorator_coin_prob</key>
+			<real>0.0</real>
+			<key>logic_decorator_apple_prob</key>
+			<real>0.0</real>
+			<key>dispenser_joker_prob</key>
+			<real>0.03</real>
+			<key>valid_min_word_size</key>
+			<integer>3</integer>
+			<key>joker_image_hints</key>
+			<true/>
+			<key>joker_image_rewards</key>
+			<true/>
+			<key>board_formula</key>
+			<string>0 0 60 60 2 6
+240 0 60 60 2 6</string>
+			<key>dispenser_symbol_count</key>
+			<integer>110</integer>
+			<key>score_factor</key>
+			<real>2.5</real>
+		</dict>
+	</dict>
+	<key>BFA57A62-F4A4-464C-99A1-84AF9970E663</key>
+	<dict>
+		<key>name</key>
+		<string>Checkers</string>
+		<key>description</key>
+		<string>Five squares</string>
+		<key>prefs-data</key>
+		<dict>
+			<key>allow_play_pause</key>
+			<true/>
+			<key>allow_show_hint</key>
+			<true/>
+			<key>board_override</key>
+			<true/>
+			<key>logic_random</key>
+			<true/>
+			<key>logic_decorator</key>
+			<true/>
+			<key>logic_decorator_bomb_prob</key>
+			<real>0.1</real>
+			<key>logic_decorator_coin_prob</key>
+			<real>0.0</real>
+			<key>logic_decorator_apple_prob</key>
+			<real>0.0</real>
+			<key>dispenser_joker_prob</key>
+			<real>0.03</real>
+			<key>valid_min_word_size</key>
+			<integer>3</integer>
+			<key>joker_image_hints</key>
+			<true/>
+			<key>joker_image_rewards</key>
+			<true/>
+			<key>board_formula</key>
+			<string>0 0 60 60 2 2
+240 0 60 60 2 2
+120 120 60 60 2 2
+0 240 60 60 2 2
+240 240 60 60 2 2</string>
+			<key>dispenser_symbol_count</key>
+			<integer>120</integer>
+			<key>score_factor</key>
+			<real>2.75</real>
+		</dict>
+	</dict>
+</dict>
+</plist>

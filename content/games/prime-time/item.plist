@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Prime Time</string>
+	<key>comment</key>
+	<string>Compose prime numbers from digit tiles.</string>
+	<key>version</key>
+	<real>1.0</real>
+	<key>filename</key>
+	<string>Prime_Time</string>
+	<key>uuid</key>
+	<string>A2970D05-A8FD-42B9-B5EE-2EB60C035969</string>
+	<key>publish</key>
+	<false/>
+</dict>
+</plist>

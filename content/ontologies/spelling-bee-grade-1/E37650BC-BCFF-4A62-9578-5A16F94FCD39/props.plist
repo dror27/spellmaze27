@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Spelling Bee: Grade 1</string>
+	<key>description</key>
+	<string>30 grade 1 spelling words with meanings</string>
+	<key>item-icon</key>
+	<string>icon.png</string>
+	<key>voice-language</key>
+	<string>en-US</string>
+	<key>text-delimiter</key>
+	<string>|</string>
+	<key>allow-add-word</key>
+	<false/>
+</dict>
+</plist>

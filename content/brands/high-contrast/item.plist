@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>High Contrast</string>
+	<key>comment</key>
+	<string>Color-blind safe tiles (Okabe-Ito colors) on black,
+with a strong grid and no gloss.</string>
+	<key>version</key>
+	<real>1.0</real>
+	<key>filename</key>
+	<string>High_Contrast</string>
+	<key>uuid</key>
+	<string>5B478AAA-6B71-4469-B777-0512D86A63DA</string>
+</dict>
+</plist>

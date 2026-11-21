@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Spelling Bee</string>
+	<key>comment</key>
+	<string>Listen, then spell the scrambled word.
+Four levels; best with word lists that have meanings.</string>
+	<key>version</key>
+	<real>1.0</real>
+	<key>filename</key>
+	<string>Spelling_Bee</string>
+	<key>uuid</key>
+	<string>EEAD6425-263F-42A5-B8D3-9BE085B92286</string>
+</dict>
+</plist>

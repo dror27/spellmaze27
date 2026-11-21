@@ -1,0 +1,31 @@
+# grade 3 spelling words: WORD|title|meaning
+ANSWER|Answer|A reply to a question.
+BEAUTIFUL|Beautiful|Very pretty to look at.
+BELIEVE|Believe|To think something is true.
+BREATHE|Breathe|To take air in and out.
+BUILDING|Building|A structure with walls and a roof.
+CAREFUL|Careful|Paying attention so nothing goes wrong.
+CIRCLE|Circle|A round shape.
+DIFFERENT|Different|Not the same.
+ENOUGH|Enough|As much as you need.
+EXPLAIN|Explain|To make something clear.
+FAVORITE|Favorite|The one you like best.
+FINALLY|Finally|At last, after a long time.
+GENTLE|Gentle|Soft and kind.
+IMPORTANT|Important|Something that matters a lot.
+KNOWLEDGE|Knowledge|What you know and have learned.
+LAUGH|Laugh|The sound you make when something is funny.
+MACHINE|Machine|A thing with parts that does work.
+MINUTE|Minute|Sixty seconds.
+NEIGHBOR|Neighbor|A person who lives next to you.
+OCEAN|Ocean|A very big body of salt water.
+PICTURE|Picture|A drawing, painting or photo.
+QUESTION|Question|Something you ask.
+REMEMBER|Remember|To keep in your mind.
+SPECIAL|Special|Not ordinary; important.
+SURPRISE|Surprise|Something you did not expect.
+THOUGHT|Thought|An idea in your mind.
+TOGETHER|Together|With each other.
+VEGETABLE|Vegetable|A plant we eat, like a carrot.
+WEATHER|Weather|What the sky and air are like: sun, rain, wind.
+WHISPER|Whisper|To speak very softly.

@@ -69,6 +69,9 @@ The keys mentioned are the ones documented in the content guide.
 
 ---
 
+**Done:** the five first projects below, plus a **Prime Time** game (compose prime numbers), are in the catalog
+under "SpellMaze 2026". Their sources are in [content/](../content/).
+
 **Good first projects**, which need no code and quickly give players something new:
 1. a *Kids* game plus a phonics word list with pictures
 2. a *Spelling Bee* game plus grade-level lists with definitions

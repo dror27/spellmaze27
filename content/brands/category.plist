@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>SpellMaze 2026</string>
+	<key>comment</key>
+	<string>New skins: High Contrast</string>
+	<key>uuid</key>
+	<string>EF24CFBA-2ED5-4243-A45C-267FBF3A7365</string>
+	<key>folder</key>
+	<string>New</string>
+	<key>version</key>
+	<real>1.0</real>
+</dict>
+</plist>

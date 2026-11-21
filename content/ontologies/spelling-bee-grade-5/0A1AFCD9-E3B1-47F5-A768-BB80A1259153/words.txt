@@ -1,0 +1,31 @@
+# grade 5 spelling words: WORD|title|meaning
+ACCIDENT|Accident|Something bad that happens by chance.
+ANCIENT|Ancient|Very, very old.
+ARGUMENT|Argument|A disagreement, or reasons for an opinion.
+AVERAGE|Average|The usual amount; the middle value.
+BALANCE|Balance|Being steady, not falling to one side.
+CALENDAR|Calendar|A chart of the days, weeks and months.
+CERTAIN|Certain|Completely sure.
+CHOCOLATE|Chocolate|A sweet food made from cocoa beans.
+DESCRIBE|Describe|To tell what something is like.
+DISCOVER|Discover|To find something for the first time.
+ENVIRONMENT|Environment|The world around us: air, water, land.
+EXCELLENT|Excellent|Extremely good.
+GOVERNMENT|Government|The people who run a country or state.
+GUARANTEE|Guarantee|A promise that something will happen.
+HUMOROUS|Humorous|Funny.
+IMAGINE|Imagine|To make a picture in your mind.
+JOURNEY|Journey|A long trip.
+LIBRARY|Library|A place to borrow books.
+MYSTERIOUS|Mysterious|Strange and hard to explain.
+NECESSARY|Necessary|Needed; required.
+OPPOSITE|Opposite|Completely different, like hot and cold.
+PARALLEL|Parallel|Lines that never meet.
+POPULATION|Population|The number of people living in a place.
+RECOMMEND|Recommend|To suggest something as good.
+RHYTHM|Rhythm|A regular beat in music or speech.
+SEPARATE|Separate|To pull apart; not together.
+SCIENCE|Science|The study of how the world works.
+TEMPERATURE|Temperature|How hot or cold something is.
+VOLCANO|Volcano|A mountain that can erupt with hot lava.
+WEDNESDAY|Wednesday|The day after Tuesday.

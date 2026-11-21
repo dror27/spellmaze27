@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>SpellMaze 2026</string>
+	<key>comment</key>
+	<string>New skins: High Contrast</string>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>type</key>
+			<string>item</string>
+			<key>uuid</key>
+			<string>5B478AAA-6B71-4469-B777-0512D86A63DA</string>
+			<key>version</key>
+			<real>1.0</real>
+			<key>name</key>
+			<string>High Contrast</string>
+			<key>comment</key>
+			<string>Color-blind safe tiles (Okabe-Ito colors) on black,
+with a strong grid and no gloss.</string>
+			<key>item-icon</key>
+			<string>High_Contrast_item_icon.png</string>
+			<key>icon</key>
+			<string>High_Contrast_item_poster.png</string>
+			<key>domain</key>
+			<string>Brands</string>
+			<key>url</key>
+			<string>High_Contrast.zip</string>
+			<key>leading-uuid</key>
+			<string>C55F726B-24B8-4A19-BCA0-AF91E19B4A5C</string>
+		</dict>
+	</array>
+</dict>
+</plist>

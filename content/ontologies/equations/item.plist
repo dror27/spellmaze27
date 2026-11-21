@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Equations</string>
+	<key>comment</key>
+	<string>Build true sums, differences and products
+from digit and sign tiles (numbers up to 12).</string>
+	<key>version</key>
+	<real>1.0</real>
+	<key>filename</key>
+	<string>Equations</string>
+	<key>uuid</key>
+	<string>83769C7D-1636-4109-BD12-729AC7FD7168</string>
+</dict>
+</plist>

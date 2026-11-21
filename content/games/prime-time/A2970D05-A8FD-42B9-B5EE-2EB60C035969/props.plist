@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Prime Time</string>
+	<key>description</key>
+	<string>Compose prime numbers</string>
+	<key>uuid</key>
+	<string>A2970D05-A8FD-42B9-B5EE-2EB60C035969</string>
+	<key>levels</key>
+	<array>
+		<string>37AC7476-1B03-45F8-9C9E-62D7691CC266</string>
+		<string>83C682AD-D505-48B2-99D0-BA379CE3CCC3</string>
+		<string>1C4B0808-C754-4000-8125-97F15FE6571D</string>
+		<string>B5ACB735-98DC-42B8-BB3A-828087717828</string>
+		<string>042BB103-A382-4336-A0CB-48CEC32D5951</string>
+	</array>
+	<key>37AC7476-1B03-45F8-9C9E-62D7691CC266</key>
+	<dict>
+		<key>name</key>
+		<string>Two Digits</string>
+		<key>description</key>
+		<string>Primes from 11 to 97</string>
+		<key>prefs-data</key>
+		<dict>
+			<key>allow_play_pause</key>
+			<true/>
+			<key>allow_show_hint</key>
+			<true/>
+			<key>board_override</key>
+			<true/>
+			<key>logic_random</key>
+			<true/>
+			<key>logic_decorator</key>
+			<true/>
+			<key>logic_decorator_bomb_prob</key>
+			<real>0.1</real>
+			<key>logic_decorator_coin_prob</key>
+			<real>0.0</real>
+			<key>logic_decorator_apple_prob</key>
+			<real>0.0</real>
+			<key>dispenser_joker_prob</key>
+			<real>0.02</real>
+			<key>joker_image_hints</key>
+			<false/>
+			<key>rush_words</key>
+			<integer>1</integer>
+			<key>board_formula</key>
+			<string>0 0 60 60 4 4</string>
+			<key>valid_min_word_size</key>
+			<integer>2</integer>
+			<key>hint_max_word_size</key>
+			<integer>2</integer>
+			<key>dispenser_symbol_count</key>
+			<integer>60</integer>
+			<key>rush_min_word_size</key>
+			<integer>2</integer>
+			<key>rush_max_word_size</key>
+			<integer>2</integer>
+		</dict>
+		<key>help-splash</key>
+		<dict>
+			<key>title</key>
+			<string>Prime Time</string>
+			<key>text</key>
+			<string>Make prime numbers from the digits: numbers that can only be divided by 1 and themselves, like 13, 101 or 7919.
+-
+Tap the digits in order, then tap the last one again.</string>
+			<key>auto-show</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>83C682AD-D505-48B2-99D0-BA379CE3CCC3</key>
+	<dict>
+		<key>name</key>
+		<string>Three Digits</string>
+		<key>description</key>
+		<string>Primes from 101 to 997</string>
+		<key>prefs-data</key>
+		<dict>
+			<key>allow_play_pause</key>
+			<true/>
+			<key>allow_show_hint</key>
+			<true/>
+			<key>board_override</key>
+			<true/>
+			<key>logic_random</key>
+			<true/>
+			<key>logic_decorator</key>
+			<true/>
+			<key>logic_decorator_bomb_prob</key>
+			<real>0.1</real>
+			<key>logic_decorator_coin_prob</key>
+			<real>0.0</real>
+			<key>logic_decorator_apple_prob</key>
+			<real>0.0</real>
+			<key>dispenser_joker_prob</key>
+			<real>0.02</real>
+			<key>joker_image_hints</key>
+			<false/>
+			<key>rush_words</key>
+			<integer>1</integer>
+			<key>board_formula</key>
+			<string>0 0 60 60 5 5</string>
+			<key>valid_min_word_size</key>
+			<integer>3</integer>
+			<key>hint_max_word_size</key>
+			<integer>3</integer>
+			<key>dispenser_symbol_count</key>
+			<integer>90</integer>
+			<key>rush_min_word_size</key>
+			<integer>3</integer>
+			<key>rush_max_word_size</key>
+			<integer>3</integer>
+			<key>score_factor</key>
+			<real>1.5</real>
+		</dict>
+	</dict>
+	<key>1C4B0808-C754-4000-8125-97F15FE6571D</key>
+	<dict>
+		<key>name</key>
+		<string>Four Digits</string>
+		<key>description</key>
+		<string>Primes from 1009 to 9973</string>
+		<key>prefs-data</key>
+		<dict>
+			<key>allow_play_pause</key>
+			<true/>
+			<key>allow_show_hint</key>
+			<true/>
+			<key>board_override</key>
+			<true/>
+			<key>logic_random</key>
+			<true/>
+			<key>logic_decorator</key>
+			<true/>
+			<key>logic_decorator_bomb_prob</key>
+			<real>0.1</real>
+			<key>logic_decorator_coin_prob</key>
+			<real>0.0</real>
+			<key>logic_decorator_apple_prob</key>
+			<real>0.0</real>
+			<key>dispenser_joker_prob</key>
+			<real>0.02</real>
+			<key>joker_image_hints</key>
+			<false/>
+			<key>rush_words</key>
+			<integer>1</integer>
+			<key>board_formula</key>
+			<string>0 0 60 60 5 5</string>
+			<key>valid_min_word_size</key>
+			<integer>4</integer>
+			<key>hint_max_word_size</key>
+			<integer>4</integer>
+			<key>dispenser_symbol_count</key>
+			<integer>110</integer>
+			<key>rush_min_word_size</key>
+			<integer>4</integer>
+			<key>rush_max_word_size</key>
+			<integer>4</integer>
+			<key>score_factor</key>
+			<real>2.0</real>
+		</dict>
+	</dict>
+	<key>B5ACB735-98DC-42B8-BB3A-828087717828</key>
+	<dict>
+		<key>name</key>
+		<string>Five Digits</string>
+		<key>description</key>
+		<string>Primes from 10007 to 99991</string>
+		<key>prefs-data</key>
+		<dict>
+			<key>allow_play_pause</key>
+			<true/>
+			<key>allow_show_hint</key>
+			<true/>
+			<key>board_override</key>
+			<true/>
+			<key>logic_random</key>
+			<true/>
+			<key>logic_decorator</key>
+			<true/>
+			<key>logic_decorator_bomb_prob</key>
+			<real>0.1</real>
+			<key>logic_decorator_coin_prob</key>
+			<real>0.0</real>
+			<key>logic_decorator_apple_prob</key>
+			<real>0.0</real>
+			<key>dispenser_joker_prob</key>
+			<real>0.04</real>
+			<key>joker_image_hints</key>
+			<false/>
+			<key>rush_words</key>
+			<integer>1</integer>
+			<key>board_formula</key>
+			<string>0 0 60 60 6 6</string>
+			<key>valid_min_word_size</key>
+			<integer>5</integer>
+			<key>hint_max_word_size</key>
+			<integer>5</integer>
+			<key>dispenser_symbol_count</key>
+			<integer>140</integer>
+			<key>rush_min_word_size</key>
+			<integer>5</integer>
+			<key>rush_max_word_size</key>
+			<integer>5</integer>
+			<key>score_factor</key>
+			<real>3.0</real>
+		</dict>
+	</dict>
+	<key>042BB103-A382-4336-A0CB-48CEC32D5951</key>
+	<dict>
+		<key>name</key>
+		<string>Prime Spiral</string>
+		<key>description</key>
+		<string>Digits spiral in: any prime of 3 or more</string>
+		<key>prefs-data</key>
+		<dict>
+			<key>allow_play_pause</key>
+			<true/>
+			<key>allow_show_hint</key>
+			<true/>
+			<key>board_override</key>
+			<true/>
+			<key>logic_random</key>
+			<false/>
+			<key>logic_decorator</key>
+			<true/>
+			<key>logic_decorator_bomb_prob</key>
+			<real>0.1</real>
+			<key>logic_decorator_coin_prob</key>
+			<real>0.0</real>
+			<key>logic_decorator_apple_prob</key>
+			<real>0.0</real>
+			<key>dispenser_joker_prob</key>
+			<real>0.02</real>
+			<key>joker_image_hints</key>
+			<false/>
+			<key>rush_words</key>
+			<integer>1</integer>
+			<key>board_formula</key>
+			<string>0 0 60 60 5 5</string>
+			<key>logic_nudge</key>
+			<true/>
+			<key>logic_board_order</key>
+			<string>Spiral</string>
+			<key>valid_min_word_size</key>
+			<integer>3</integer>
+			<key>hint_max_word_size</key>
+			<integer>4</integer>
+			<key>dispenser_symbol_count</key>
+			<integer>120</integer>
+			<key>score_factor</key>
+			<real>2.5</real>
+		</dict>
+	</dict>
+</dict>
+</plist>

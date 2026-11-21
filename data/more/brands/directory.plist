@@ -8,6 +8,22 @@
 	<array>
 		<dict>
 			<key>type</key>
+			<string>directory</string>
+			<key>uuid</key>
+			<string>EF24CFBA-2ED5-4243-A45C-267FBF3A7365</string>
+			<key>version</key>
+			<real>1.0</real>
+			<key>name</key>
+			<string>SpellMaze 2026</string>
+			<key>comment</key>
+			<string>New skins: High Contrast</string>
+			<key>url</key>
+			<string>New/directory.plist</string>
+			<key>item-icon</key>
+			<string>New/High_Contrast_item_icon.png</string>
+		</dict>
+		<dict>
+			<key>type</key>
 			<string>item</string>
 			<key>uuid</key>
 			<string>4E713978-A5AC-06AD-D781-58DB9F60BF19</string>
@@ -25,11 +41,11 @@
 			<string>86D1C949-9B24-C931-E5B5-BBAF94B06901</string>
 			<key>icon</key>
 			<string>SpellMazeBrand.png</string>
-            <key>item-icon</key>
-            <string>SpellMazeBrand_icon.png</string>
-            <key>billing-code</key>
-            <string>FS:Free</string>
-		</dict>        
+			<key>item-icon</key>
+			<string>SpellMazeBrand_icon.png</string>
+			<key>billing-code</key>
+			<string>FS:Free</string>
+		</dict>
 	</array>
 </dict>
 </plist>

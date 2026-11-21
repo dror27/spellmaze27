@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Kids</string>
+	<key>comment</key>
+	<string>Big tiles, slow letters, nobody loses.
+Six gentle levels for young players.</string>
+	<key>version</key>
+	<real>1.0</real>
+	<key>filename</key>
+	<string>Kids</string>
+	<key>uuid</key>
+	<string>F17113E0-F922-42F8-882B-46C895C43A30</string>
+</dict>
+</plist>

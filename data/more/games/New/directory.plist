@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>SpellMaze 2026</string>
+	<key>comment</key>
+	<string>New games: Kids, Spelling Bee, Shapes</string>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>type</key>
+			<string>item</string>
+			<key>uuid</key>
+			<string>F17113E0-F922-42F8-882B-46C895C43A30</string>
+			<key>version</key>
+			<real>1.0</real>
+			<key>name</key>
+			<string>Kids</string>
+			<key>comment</key>
+			<string>Big tiles, slow letters, nobody loses.
+Six gentle levels for young players.</string>
+			<key>item-icon</key>
+			<string>Kids_item_icon.png</string>
+			<key>icon</key>
+			<string>Kids_item_poster.png</string>
+			<key>domain</key>
+			<string>Games</string>
+			<key>url</key>
+			<string>Kids.zip</string>
+			<key>leading-uuid</key>
+			<string>47B74907-391E-413B-AD70-93712F54ADA1</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>item</string>
+			<key>uuid</key>
+			<string>E86D3CAC-027A-42C5-B111-BEC3F543EABB</string>
+			<key>version</key>
+			<real>1.0</real>
+			<key>name</key>
+			<string>Shapes</string>
+			<key>comment</key>
+			<string>Boards in every shape: plus, ring, diamond, hourglass ...
+Eight levels, for any word list.</string>
+			<key>item-icon</key>
+			<string>Shapes_item_icon.png</string>
+			<key>icon</key>
+			<string>Shapes_item_poster.png</string>
+			<key>domain</key>
+			<string>Games</string>
+			<key>url</key>
+			<string>Shapes.zip</string>
+			<key>leading-uuid</key>
+			<string>DC1A8C4C-211F-47F0-889B-228E81C2E237</string>
+		</dict>
+		<dict>
+			<key>type</key>
+			<string>item</string>
+			<key>uuid</key>
+			<string>EEAD6425-263F-42A5-B8D3-9BE085B92286</string>
+			<key>version</key>
+			<real>1.0</real>
+			<key>name</key>
+			<string>Spelling Bee</string>
+			<key>comment</key>
+			<string>Listen, then spell the scrambled word.
+Four levels; best with word lists that have meanings.</string>
+			<key>item-icon</key>
+			<string>Spelling_Bee_item_icon.png</string>
+			<key>icon</key>
+			<string>Spelling_Bee_item_poster.png</string>
+			<key>domain</key>
+			<string>Games</string>
+			<key>url</key>
+			<string>Spelling_Bee.zip</string>
+			<key>leading-uuid</key>
+			<string>6A4E7D8C-DB71-4924-A6C7-A481C6D0A3DE</string>
+		</dict>
+	</array>
+</dict>
+</plist>

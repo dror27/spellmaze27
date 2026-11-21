@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Phonics</string>
+	<key>comment</key>
+	<string>88 three-letter words for early readers,
+16 of them with pictures. Plays with the Kids game.</string>
+	<key>version</key>
+	<real>1.0</real>
+	<key>filename</key>
+	<string>Phonics</string>
+	<key>uuid</key>
+	<string>3248716F-742A-4B61-AE48-A0CE5768E0CB</string>
+	<key>embed-game</key>
+	<string>kids</string>
+</dict>
+</plist>

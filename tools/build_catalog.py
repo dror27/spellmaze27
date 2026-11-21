@@ -479,6 +479,12 @@ def main():
                     shutil.rmtree(dst)
                 shutil.copytree(src, dst, ignore=shutil.ignore_patterns('.DS_Store'))
                 print('  copied', name)
+    # the hand-made content of this repository (content/) is added on top
+    extras = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'build_extras.py')
+    content = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'content')
+    if os.path.exists(extras) and os.path.isdir(content):
+        import subprocess
+        subprocess.run([sys.executable, extras, content, out], check=True)
 
 
 if __name__ == '__main__':

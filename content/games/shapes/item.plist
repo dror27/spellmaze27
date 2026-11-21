@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Shapes</string>
+	<key>comment</key>
+	<string>Boards in every shape: plus, ring, diamond, hourglass ...
+Eight levels, for any word list.</string>
+	<key>version</key>
+	<real>1.0</real>
+	<key>filename</key>
+	<string>Shapes</string>
+	<key>uuid</key>
+	<string>E86D3CAC-027A-42C5-B111-BEC3F543EABB</string>
+</dict>
+</plist>

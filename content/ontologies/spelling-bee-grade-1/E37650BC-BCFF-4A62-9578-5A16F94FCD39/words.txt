@@ -1,0 +1,31 @@
+# grade 1 spelling words: WORD|title|meaning
+AFTER|After|Later than something else.
+AGAIN|Again|One more time.
+ANIMAL|Animal|A living thing that moves, like a dog or a bird.
+APPLE|Apple|A round red or green fruit.
+BABY|Baby|A very young child.
+BALL|Ball|A round toy you throw, kick or roll.
+BIRD|Bird|An animal with feathers and wings.
+BLUE|Blue|The color of a clear sky.
+BOOK|Book|Pages with words and pictures that you read.
+CAKE|Cake|A sweet food baked for parties.
+DOOR|Door|What you open to go into a room.
+FISH|Fish|An animal that lives and swims in water.
+FRIEND|Friend|Someone you like and play with.
+GREEN|Green|The color of grass.
+HAPPY|Happy|Feeling good and glad.
+HOUSE|House|A building people live in.
+JUMP|Jump|To push yourself up into the air.
+LITTLE|Little|Small.
+MILK|Milk|A white drink that comes from cows.
+MOTHER|Mother|A mom.
+NIGHT|Night|The dark time when the sky is black.
+PLAY|Play|To have fun with games or toys.
+RAIN|Rain|Water that falls from clouds.
+SCHOOL|School|A place where children learn.
+SLEEP|Sleep|To rest with your eyes closed.
+SMILE|Smile|A happy face with the corners of the mouth up.
+STAR|Star|A tiny light in the night sky.
+TREE|Tree|A tall plant with a trunk and leaves.
+WATER|Water|The clear liquid we drink.
+YELLOW|Yellow|The color of a banana.

@@ -110,8 +110,12 @@ export class PlayScreen extends Screen {
 			}
 		} else if (ev.key.length === 1) {
 			const ch = ev.key.toLocaleUpperCase();
-			const candidates = level.board.allPieces().filter(p => !p.isSelected && !p.disabled && !p.hidden && p.view &&
-				(p.text === ch || p.text === ev.key || (ev.key === '?' && p.text === '?')));
+			const matches = c => level.board.allPieces().filter(p => !p.isSelected && !p.disabled && !p.hidden && p.view &&
+				(p.text === c || p.text === ev.key || (ev.key === '?' && p.text === '?')));
+			let candidates = matches(ch);
+			// keys for signs the keyboard doesn't have (the Equations word list uses ×)
+			if (!candidates.length && (ev.key === '*' || ev.key === 'x' || ev.key === 'X'))
+				candidates = matches('×');
 			if (!candidates.length)
 				return;
 			// prefer pieces next to the previous one (helps adjacency levels), then a real letter over a joker

@@ -96,6 +96,9 @@ tools/build_catalog.py /tmp/spellmaze_catalog data/more
 It reads the same Spring bean descriptors (`catalog/desc/*.xml`) and writes the same layout:
 
 * `ontologies/<Language>/…`: 9 languages, plus Flags, Mammals, Finger Spelling and Straight Up variants (35 zips, about 26 MB).
+* `<domain>/New/`: the **SpellMaze 2026** content made for the web version, from [content/](content/): Phonics + Kids,
+  Spelling Bee lists (grades 1, 3, 5) + Spelling Bee, Equations, Primes + Prime Time, Shapes, High Contrast.
+  It's built by `tools/build_extras.py`, which `build_catalog.py` also runs.
 * `games/` and `brands/`: copied from the repo's prebuilt `catalog/other/rc1/more`.
 
 The `More: more` line in `data/manifest.txt` points the game at it. Add more `More: <url>` lines for other
