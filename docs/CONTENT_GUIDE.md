@@ -262,6 +262,18 @@ Leave a key out to use its default. Times are in seconds.
 | `rush_words` | number | 1 | the number of words whose letters are dealt first, fast, to get the player going |
 | `rush_min_word_size`, `rush_max_word_size` | number | 3, 4 | the length of those words |
 
+**Dealing whole words** (instead of random letters)
+
+| Key | Type | Default | Meaning |
+|---|---|---|---|
+| `dispenser_word_by_word` | yes/no | no | deal the word list's words one after the other, letter by letter (good for learning a short list) |
+| `dispenser_reorder` | yes/no | no | with word by word: shuffle the words first |
+| `dispenser_scramble` | yes/no | no | with word by word: deal each word's letters in a scrambled order |
+| `logic_line` | yes/no | no | with word by word: place each word's letters in a row (the third row), and pause until it is spelled |
+| `logic_word_end_pause` | yes/no | no | with word by word and `logic_random`: pause after each word |
+
+`dispenser_tick_period` sets the time between letters (0.5 by default here), and a short pause comes before each new word.
+
 **The board**
 
 | Key | Type | Default | Meaning |
@@ -415,6 +427,56 @@ in order, then the `cell-headings` tiles. The *Learning* game uses three rows of
 90 255 180 45 1 1 0,0,0,0
 30 -60 300 45 1 1 0,0,0,0            # the title above the board
 ```
+
+### Settings for players (`prefs`)
+
+A word list, game, skin or single level can offer **its own settings**: switches, choices and sliders that players
+change under CONF. In CONF › Game, Game Type or Skin they appear in a **Settings** section. Add a `prefs` list to
+the item's `props.plist`. It holds sections, and each section holds `items`:
+
+```xml
+<key>prefs</key>
+<array>
+	<dict>
+		<key>title</key>     <string>Display</string>
+		<key>comment</key>   <string>How the letters look</string>
+		<key>items</key>
+		<array>
+			<dict>
+				<key>label</key>  <string>Show Letters</string>
+				<key>type</key>   <string>Boolean</string>
+				<key>key</key>    <string>skin/props/show-symbol-text</string>
+				<key>value</key>  <true/>
+			</dict>
+		</array>
+	</dict>
+</array>
+```
+
+A setting is stored for the item under its `key`, and the item reads it in place of its own value. For a level,
+the key is one of the level rules (`prefs-data`) above, so a setting can let the player choose, for example, the
+level's speed:
+`<key>key</key><string>dispenser_tick_period</string>` with type `Float`. For a word list, any key under its
+props works, such as `skin/props/show-symbol-text`.
+
+| `type` | Shows | Extra keys |
+|---|---|---|
+| `Boolean` | a switch | `value`: the default |
+| `String` | a text field | `value`: the default |
+| `MultiValue` | a list to choose from | `titles` and `values` (two lists of the same length), `value`: the default |
+| `Integer` | a slider of whole numbers | `min-value` (0), `max-value` (10), `value`, `show-value` |
+| `Float` | a slider | `min-value` (0), `max-value` (1), `value`, `log-scale`, `show-value` |
+| `Domain` | a list of installed items of a kind | `domain` (e.g. `Ontologies`), `prefix-titles`/`prefix-values`, `suffix-titles`/`suffix-values` for extra entries |
+| `Page` | a row opening a sub-page | `value`: a list of sections, like `prefs` itself |
+
+The Finger Spelling word list (`data/zips/FingerSpellingEnglish.zip`) has a "Show Letters" setting.
+
+### Versions and updates
+
+Items downloaded from a catalog site keep the catalog's `version`. CONF › Advanced Settings › **Check For Updates**
+compares them against the catalog and offers the newer ones. To publish an update on a catalog site, keep the
+item's UUID and raise its `version` in the site's `directory.plist`. Zips imported by hand have no version; import
+the new zip again to update them.
 
 ## 7. Single levels (advanced)
 

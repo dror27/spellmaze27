@@ -532,55 +532,86 @@ export class GridBoardPieceDispenserSymbols extends GridBoardPieceDispenserBase 
 	}
 }
 
-// dispenses whole words, symbol by symbol (dispenser_word_by_word)
-export class GridBoardPieceDispenserWords extends GridBoardPieceDispenserBase {
+// dispenses whole words, symbol by symbol (dispenser_word_by_word) - port of WordListWordDispenser and
+// GridBoardPieceDispenserWords
+export class WordListWordDispenser {
 	constructor(words, randomOrder) {
-		super();
-		this.words = words.slice();
-		if (randomOrder)
-			shuffle(this.words);
-		this.wordIndex = 0;
-		this.symbolIndex = 0;
-		this.interWordTickPeriod = 0.5;
-		this.scrambleWordSymbols = false;
-		this.currentSymbols = null;
-		this.totalSymbols = this.words.reduce((s, w) => s + w.length, 0);
-		this.dispensedSymbols = 0;
+		this.words = randomOrder ? shuffle(words.slice()) : words.slice();
+		this.dispenseIndex = 0;
 	}
-	preparePiece() {
-		if (this.wordIndex >= this.words.length)
-			return false;
-		const word = this.words[this.wordIndex];
-		if (!this.currentSymbols) {
-			this.currentSymbols = word.split('');
-			if (this.scrambleWordSymbols)
-				shuffle(this.currentSymbols);
-		}
-		const symbol = this.currentSymbols[this.symbolIndex];
-		const piece = this.makePiece(symbol, null);
-		piece.props.hints = {
-			Word: word, WordSize: word.length, WordSymbolIndex: this.symbolIndex,
-			WordDispensingIndex: this.symbolIndex, WordIsLast: this.wordIndex === this.words.length - 1 ? 1 : 0
-		};
-		this.ownBoard.placePiece(piece, 0);
-		this.symbolIndex++;
-		this.dispensedSymbols++;
-		if (this.symbolIndex >= word.length) {
-			this.symbolIndex = 0;
-			this.wordIndex++;
-			this.currentSymbols = null;
-			this.atWordEnd = true;
-		} else
-			this.atWordEnd = false;
-		return true;
+	dispense() {
+		return this.dispenseIndex < this.words.length ? this.words[this.dispenseIndex++] : null;
 	}
-	nextTickPeriod() {
-		return this.atWordEnd ? this.interWordTickPeriod : this.dispensingTickPeriod;
+	canDispense() {
+		return this.dispenseIndex < this.words.length;
 	}
 	progress() {
-		return this.totalSymbols ? this.dispensedSymbols / this.totalSymbols : 0;
+		return this.words.length ? this.dispenseIndex / this.words.length : 0;
 	}
-	piecesLeft() {
-		return this.totalSymbols - this.dispensedSymbols;
+}
+
+let wordIdCounter = 0;
+
+export class GridBoardPieceDispenserWords extends GridBoardPieceDispenserBase {
+	constructor(wordDispenser) {
+		super();
+		this.wordDispenser = wordDispenser;
+		this.currentWord = null;
+		this.currentWordId = 0;
+		this.currentIndex = 0;
+		this.dispensingOrder = [];
+		this.interWordTickPeriod = 0.5;
+		this.scrambleWordSymbols = false;
+	}
+	preparePiece() {
+		if (this.currentWord === null && !this.wordDispenser.canDispense())
+			return false;
+		if (this.currentWord === null) {
+			this.currentWord = this.wordDispenser.dispense();
+			this.currentWordId = ++wordIdCounter;
+			this.buildDispensingOrder();
+			this.currentIndex = 0;
+		}
+		if (this.currentWord === null)
+			return false;
+		const word = this.currentWord;
+		const hints = {
+			Word: word, WordId: this.currentWordId, WordSize: word.length,
+			WordDispensingIndex: this.currentIndex, WordSymbolIndex: this.dispensingOrder[this.currentIndex],
+			WordIsLast: this.wordDispenser.canDispense() ? 0 : 1
+		};
+		const symbol = word.charAt(this.dispensingOrder[this.currentIndex]);
+		if (++this.currentIndex >= word.length)
+			this.currentWord = null;
+		if (symbol === ' ')
+			return this.preparePiece();		// phrases: spaces are not dealt
+		const piece = this.makePiece(symbol, null);
+		piece.props.hints = hints;
+		this.ownBoard.placePiece(piece, 0);
+		return true;
+	}
+	progress() {
+		return this.wordDispenser.progress();
+	}
+	// a pause before the first letter of every word
+	nextTickPeriod() {
+		return this.currentIndex === 1 ? this.interWordTickPeriod : super.nextTickPeriod();
+	}
+	buildDispensingOrder() {
+		const size = this.currentWord.length;
+		this.dispensingOrder = [];
+		for (let n = 0; n < size; n++)
+			this.dispensingOrder.push(n);
+		if (this.scrambleWordSymbols) {
+			// scramble, retrying (up to 5 times) when the letters end up in their original order
+			for (let trys = 0; trys < 5; trys++) {
+				for (let n = 0; n < size * 2; n++) {
+					const i1 = randInt(size), i2 = randInt(size);
+					[this.dispensingOrder[i1], this.dispensingOrder[i2]] = [this.dispensingOrder[i2], this.dispensingOrder[i1]];
+				}
+				if (this.dispensingOrder.some((v, n) => v !== n))
+					break;
+			}
+		}
 	}
 }

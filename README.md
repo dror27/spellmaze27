@@ -32,6 +32,16 @@ To publish catalog changes, rebuild `data/more` with `tools/build_catalog.py`, c
 [docs/CONTENT_GUIDE.md](docs/CONTENT_GUIDE.md) explains how to build word lists, games (sets of levels) and skins
 as zip files by hand, and how to import them in the game. Working examples are in [examples/](examples/).
 
+## Players' own words, item settings and updates
+
+* **Your own words:** CONF › Game › Your Own Words lets players type or paste a word list, or name a web address
+  to load one from. It's a port of the original's "Custom" language. The list is kept in the browser and plays
+  like any other word list.
+* **Item settings:** word lists, games, skins and levels can carry a `prefs` list. Their settings show under
+  CONF › Game / Game Type / Skin › Settings. See the content guide.
+* **Check for updates:** CONF › Advanced Settings › Check For Updates compares installed catalog items against the
+  catalog's versions and offers the newer ones.
+
 ## Cheat codes
 
 As in the original, codes added to the nickname (`Dror/eal/shaw`) turn on hidden options, including a

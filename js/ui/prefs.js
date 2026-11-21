@@ -20,6 +20,7 @@ import { Wallet } from '../wallet.js';
 import { SoundTheme, TextSpeaker } from '../sound.js';
 import { withLoading } from './loading.js';
 import { parsePlist } from '../plist.js';
+import { CUSTOM_UUID, PK_CUSTOM_WORDS, PK_LANGUAGE_URL, PK_CUSTOM_NAME, PK_CUSTOM_VOICE, registerCustomWords, customWordsConfigured, countWords } from '../customwords.js';
 import { PK_IDENTITY_NICK, userIdentity } from '../scorescomm.js';
 
 export const VERSION = '2.7 (web)';
@@ -238,6 +239,17 @@ export class PrefsScreen extends Screen {
 					this.back();
 				}
 			});
+		const own = this.section(p, 'Play with any words: a word list, names, a vocabulary to learn ...', 'Your Own Words');
+		this.row(own, 'Type or Paste Words ...', { disclosure: true, action: () => this.showPage(q => this.ownWordsPage(q), 'My Words') });
+		this.row(own, 'Words From a Web Address ...', { disclosure: true, action: () => this.showPage(q => this.ownUrlPage(q), 'My Words') });
+		if (customWordsConfigured())
+			this.row(own, 'Remove My Words', {
+				destructive: true, action: () => ActionSheet.show('Remove your own word list?', [
+					{ label: 'Remove My Words', style: 'destructive', handler: () => this.removeOwnWords() },
+					{ label: 'Cancel', style: 'cancel' }
+				])
+			});
+		this.itemSettingsSection(p, DF_LANGUAGES);
 		this.moreSection(p, DF_LANGUAGES, 'Games');
 	}
 
@@ -250,6 +262,7 @@ export class PrefsScreen extends Screen {
 				sub: item.props.description || '', checked: item.uuid === current,
 				action: () => { UserPrefs.setString(PK_LEVEL_SET, item.uuid); this.back(); }
 			});
+		this.itemSettingsSection(p, DF_GAMES);
 		this.moreSection(p, DF_GAMES, 'Game Types');
 	}
 
@@ -272,6 +285,7 @@ export class PrefsScreen extends Screen {
 				}
 			});
 		}
+		this.itemSettingsSection(p, DF_BRANDS);
 		this.moreSection(p, DF_BRANDS, 'Skins');
 	}
 
@@ -362,7 +376,7 @@ export class PrefsScreen extends Screen {
 			this.row(s, installed ? 'Download Again' : 'Download', { action: () => this.downloadItem(it, zipUrl, domain, uuid) });
 	}
 
-	async downloadItem(it, zipUrl, domain, uuid) {
+	async downloadItem(it, zipUrl, domain, uuid, selectAfter = true) {
 		const name = `${domain}/${decodeURIComponent(zipUrl.split('/').pop())}`;
 		const ok = await withLoading(async () => {
 			const r = await fetch(zipUrl);
@@ -380,7 +394,7 @@ export class PrefsScreen extends Screen {
 			return;
 		LanguageManager.clearCache(uuid);
 		GameManager.clearCache();
-		if (uuid && Folders.find(domain, uuid))
+		if (selectAfter && uuid && Folders.find(domain, uuid))
 			this.selectItem(domain, uuid);
 		else
 			this.refresh();
@@ -475,6 +489,10 @@ export class PrefsScreen extends Screen {
 	}
 
 	advancedPage(p) {
+		if (Folders.moreSites.length) {
+			const u = this.section(p, 'stay current');
+			this.row(u, 'Check For Updates', { disclosure: true, action: () => this.showPage(q => this.updatesPage(q), 'Updates') });
+		}
 		let s = this.section(p, 'Your progress is kept in this browser');
 		this.row(s, 'Reset Levels & Scores', {
 			destructive: true, action: () => ActionSheet.show('Forget all passed levels and scores?', [
@@ -532,6 +550,331 @@ export class PrefsScreen extends Screen {
 		});
 	}
 
+	// ------------------------------------------------ settings defined by items (port of PrefUUIDPrefsBuilder)
+
+	// items of a domain that carry a "prefs" array get a settings page; for games, so do their levels
+	itemSettingsSection(p, domain) {
+		const entries = [];
+		for (const item of Folders.list(domain))
+			if (Array.isArray(item.props.prefs) && item.props.prefs.length)
+				entries.push({ uuid: item.uuid, name: item.name, prefs: item.props.prefs });
+		if (domain === DF_GAMES) {
+			const seq = GameManager.cachedSequence();
+			if (seq)
+				for (const f of seq.levels)
+					if (Array.isArray(f.props.prefs) && f.props.prefs.length)
+						entries.push({ uuid: f.uuid, name: `${seq.gameTitle || seq.title}: ${f.title}`, prefs: f.props.prefs });
+		}
+		if (!entries.length)
+			return;
+		const s = this.section(p, null, 'Settings');
+		for (const e of entries)
+			this.row(s, e.name, { disclosure: true, action: () => this.showPage(q => this.settingsPage(q, e.uuid, e.prefs, domain), e.name) });
+	}
+
+	settingsChanged(uuid, domain) {
+		LanguageManager.clearCache(uuid);
+		GameManager.clearCache();
+		if (domain === DF_BRANDS) {
+			resetColorTables();
+			BrandManager.reload();
+		}
+	}
+
+	settingsPage(p, uuid, sections, domain) {
+		for (const sec of Array.isArray(sections) ? sections : []) {
+			const s = this.section(p, sec.comment || null, sec.title || null);
+			for (const it of Array.isArray(sec.items) ? sec.items : [])
+				this.settingsItem(s, uuid, it, domain);
+		}
+	}
+
+	settingsItem(s, uuid, it, domain) {
+		const type = String(it.type || '');
+		const label = String(it.label || it.key || '');
+		const key = `${uuid}/${it.key}`;
+		const changed = () => this.settingsChanged(uuid, domain);
+		switch (type) {
+			case 'Boolean': {
+				const r = this.toggle(s, label, key, toBoolValue(it.value));
+				r.addEventListener('click', changed);
+				return;
+			}
+			case 'String': {
+				const r = this.textRow(s, label, key, String(it.value || ''), it.multiline ? 2000 : 200);
+				const input = r.querySelector('input');
+				if (!UserPrefs.hasKey(key))
+					input.value = String(it.value || '');
+				input.addEventListener('change', changed);
+				return;
+			}
+			case 'MultiValue': {
+				const titles = it.titles || [], values = it.values || [];
+				const cur = UserPrefs.getString(key, String(it.value || ''));
+				const idx = values.map(String).indexOf(cur);
+				this.row(s, label, {
+					value: idx >= 0 ? titles[idx] : cur, disclosure: true,
+					action: () => this.showPage(q => this.choicePage(q, key, titles, values, cur, changed), label)
+				});
+				return;
+			}
+			case 'Domain': {
+				const dom = it.domain || 'Games';
+				const titles = [...(it['prefix-titles'] || [])], values = [...(it['prefix-values'] || [])];
+				for (const item of Folders.list(dom)) {
+					titles.push(item.name);
+					values.push(item.uuid);
+				}
+				titles.push(...(it['suffix-titles'] || []));
+				values.push(...(it['suffix-values'] || []));
+				const cur = UserPrefs.getString(key, String(it.value || ''));
+				const idx = values.map(String).indexOf(cur);
+				this.row(s, label, {
+					value: idx >= 0 ? titles[idx] : '', disclosure: true,
+					action: () => this.showPage(q => this.choicePage(q, key, titles, values, cur, changed), label)
+				});
+				return;
+			}
+			case 'Integer':
+			case 'Float': {
+				const integer = type === 'Integer';
+				const min = Number(it['min-value'] !== undefined ? it['min-value'] : 0);
+				const max = Number(it['max-value'] !== undefined ? it['max-value'] : (integer ? 10 : 1));
+				const log = !integer && toBoolValue(it['log-scale']) && min > 0;
+				const def = Number(it.value || 0);
+				const r = this.row(s, label);
+				const input = el('input', 'prefs-slider', r);
+				input.type = 'range';
+				const toSlider = v => log ? Math.log(v) : v;
+				const fromSlider = v => log ? Math.exp(v) : v;
+				input.min = String(toSlider(min));
+				input.max = String(toSlider(max));
+				input.step = integer ? '1' : String((toSlider(max) - toSlider(min)) / 100);
+				input.value = String(toSlider(UserPrefs.getFloat(key, def)));
+				const v = el('div', 'prefs-value small', r);
+				const show = () => {
+					const n = fromSlider(parseFloat(input.value));
+					v.textContent = it['show-value'] === false ? '' : (integer ? String(Math.round(n)) : n.toFixed(2));
+				};
+				show();
+				input.addEventListener('input', show);
+				input.addEventListener('change', () => {
+					const n = fromSlider(parseFloat(input.value));
+					if (integer)
+						UserPrefs.setInteger(key, Math.round(n));
+					else
+						UserPrefs.setFloat(key, n);
+					changed();
+				});
+				return;
+			}
+			case 'Page':
+				this.row(s, label, { disclosure: true, action: () => this.showPage(q => this.settingsPage(q, uuid, it.value, domain), label) });
+				return;
+			case 'Action':
+			case 'ActionItem':
+			case 'ActionLabel':
+			case 'ActionImage':
+				this.row(s, label, { sub: 'not available in the web version' });
+				return;
+			default:
+				this.row(s, `Unknown Type: ${type}`);
+		}
+	}
+
+	choicePage(p, key, titles, values, cur, changed) {
+		const s = this.section(p, null);
+		titles.forEach((t, i) => this.row(s, t, {
+			checked: String(values[i]) === String(cur),
+			action: () => {
+				UserPrefs.setString(key, String(values[i]));
+				changed();
+				this.back();
+			}
+		}));
+	}
+
+	// ------------------------------------------------ check for updates (port of PrefCheckForUpdatesActionItem)
+
+	// all items of the catalog sites: uuid -> {it, url, domain}
+	async crawlCatalog() {
+		const found = new Map();
+		const visit = async (url, domain, depth) => {
+			let dir;
+			try {
+				dir = await this.fetchDirectory(url);
+			} catch (e) {
+				return;
+			}
+			for (const it of Array.isArray(dir.items) ? dir.items : []) {
+				if (it.type === 'directory' && depth < 6)
+					await visit(new URL(it.url, url).href, domain, depth + 1);
+				else if (it.url) {
+					const uuid = String(it['leading-uuid'] || it.uuid || '').toUpperCase();
+					if (uuid)
+						found.set(uuid, { it, url: new URL(it.url, url).href, domain: it.domain || domain });
+				}
+			}
+		};
+		for (const site of Folders.moreSites)
+			for (const d of [DF_LANGUAGES, DF_GAMES, DF_BRANDS])
+				await visit(`${site.replace(/\/+$/, '')}/${d.toLowerCase()}/directory.plist`, d, 0);
+		return found;
+	}
+
+	async installedVersions() {
+		const versions = new Map();		// uuid -> version
+		for (const rec of await ZipStore.list())
+			if (rec.meta && rec.meta.uuid && rec.meta.version !== undefined)
+				versions.set(String(rec.meta.uuid).toUpperCase(), parseFloat(rec.meta.version));
+		for (const item of Folders.items) {
+			if (item.origin !== 'builtin' || versions.has(item.uuid) || !item.has('update-record.plist'))
+				continue;
+			try {
+				const rec = parsePlist(await item.bytes('update-record.plist'));
+				const v = rec && rec['directory-entry'] ? rec['directory-entry'].version : undefined;
+				if (v !== undefined)
+					versions.set(item.uuid, parseFloat(v));
+			} catch (e) { }
+		}
+		return versions;
+	}
+
+	async updatesPage(p) {
+		const page = this.pages[this.pages.length - 1];
+		const status = this.section(p, null);
+		const wait = this.row(status, 'Checking ...');
+		this.directoryCache = new Map();
+		const [catalog, versions] = await Promise.all([this.crawlCatalog(), this.installedVersions()]);
+		if (this.pages[this.pages.length - 1] !== page)
+			return;
+		wait.remove();
+		const updates = [];
+		for (const [uuid, installed] of versions) {
+			const c = catalog.get(uuid);
+			if (c && c.it.version !== undefined && parseFloat(c.it.version) > installed)
+				updates.push({ uuid, installed, ...c });
+		}
+		if (!catalog.size)
+			this.row(status, 'The catalog could not be reached');
+		else if (!updates.length)
+			this.row(status, 'Everything is up to date', { sub: `${versions.size} item(s) checked against ${catalog.size} in the catalog` });
+		else {
+			const s = this.section(p, 'Updates keep your progress', 'Updates Available');
+			for (const u of updates)
+				this.row(s, u.it.name || u.uuid, {
+					sub: `version ${u.installed} → ${u.it.version}`, disclosure: true,
+					action: () => this.downloadItem(u.it, u.url, u.domain, u.uuid, false)
+				});
+		}
+	}
+
+	// ------------------------------------------------ your own words
+
+	ownWordsFields(p) {
+		const s = this.section(p, null);
+		this.textRow(s, 'Name', PK_CUSTOM_NAME, 'My Words', 30);
+		const r = this.row(s, 'Voice');
+		const sel = el('select', 'prefs-select', r);
+		const voices = [['en', 'English'], ['en-GB', 'English (UK)'], ['es', 'Spanish'], ['fr', 'French'], ['de', 'German'],
+			['it', 'Italian'], ['pt', 'Portuguese'], ['nl', 'Dutch'], ['ru', 'Russian'], ['he', 'Hebrew'], ['ar', 'Arabic'], ['zh', 'Chinese'], ['ja', 'Japanese']];
+		const cur = UserPrefs.getString(PK_CUSTOM_VOICE, 'en');
+		for (const [v, t] of voices) {
+			const o = el('option', '', sel);
+			o.value = v;
+			o.textContent = t;
+			if (v === cur)
+				o.selected = true;
+		}
+		sel.addEventListener('change', () => UserPrefs.setString(PK_CUSTOM_VOICE, sel.value));
+	}
+
+	ownWordsPage(p) {
+		const intro = el('div', 'prefs-comment', p);
+		intro.textContent = 'One word per line, or several per line separated by spaces. Lines starting with # are ignored.';
+		this.ownWordsFields(p);
+		const box = el('div', 'prefs-section', p);
+		const ta = el('textarea', 'prefs-textarea', box);
+		ta.placeholder = 'APPLE\nBANANA\nCHERRY';
+		ta.value = UserPrefs.getString(PK_CUSTOM_WORDS, '');
+		ta.spellcheck = false;
+		ta.addEventListener('keydown', ev => ev.stopPropagation());
+		const info = el('div', 'prefs-comment', p);
+		const count = () => info.textContent = `${countWords(ta.value)} words`;
+		count();
+		ta.addEventListener('input', count);
+		const s = this.section(p, null);
+		this.row(s, 'Use These Words', {
+			action: () => {
+				if (!countWords(ta.value))
+					return this.message('My Words', 'Please enter some words first.');
+				if (ta.value.length > 2000000)
+					return this.message('My Words', 'That list is too long to keep in the browser (2 MB at most). Put it on the web and use "Words From a Web Address" instead.');
+				UserPrefs.setString(PK_CUSTOM_WORDS, ta.value);
+				UserPrefs.remove(PK_LANGUAGE_URL);
+				this.activateOwnWords();
+			}
+		});
+	}
+
+	ownUrlPage(p) {
+		const intro = el('div', 'prefs-comment', p);
+		intro.textContent = 'The address of a plain text file with one word per line (it is loaded every time the game starts; the web site must allow it to be read by other sites, CORS).';
+		this.ownWordsFields(p);
+		const s = this.section(p, null);
+		const r = this.textRow(s, 'Address', '__custom_url_draft', 'https://...', 500);
+		const input = r.querySelector('input');
+		input.value = UserPrefs.getString(PK_LANGUAGE_URL, '');
+		input.type = 'url';
+		const s2 = this.section(p, null);
+		this.row(s2, 'Load Words', {
+			action: () => {
+				const url = input.value.trim();
+				if (!/^https?:\/\//i.test(url))
+					return this.message('My Words', 'Please enter a web address starting with https://');
+				UserPrefs.setString(PK_LANGUAGE_URL, url);
+				UserPrefs.remove(PK_CUSTOM_WORDS);
+				this.activateOwnWords();
+			}
+		});
+		UserPrefs.remove('__custom_url_draft');
+	}
+
+	async activateOwnWords() {
+		const item = await withLoading(async () => {
+			const it = await registerCustomWords();
+			if (!it)
+				throw new Error('No words were found.');
+			return it;
+		});
+		if (!item)
+			return;
+		LanguageManager.clearCache(CUSTOM_UUID);
+		GameManager.clearCache();
+		UserPrefs.setString(PK_LANG_DEFAULT, CUSTOM_UUID);
+		while (this.pages.length > 2)
+			this.pages.pop();
+		this.render();
+	}
+
+	async removeOwnWords() {
+		UserPrefs.remove(PK_CUSTOM_WORDS);
+		UserPrefs.remove(PK_LANGUAGE_URL);
+		await registerCustomWords();
+		LanguageManager.clearCache(CUSTOM_UUID);
+		if (UserPrefs.getString(PK_LANG_DEFAULT, '') === CUSTOM_UUID)
+			UserPrefs.remove(PK_LANG_DEFAULT);
+		GameManager.clearCache();
+		this.render();
+	}
+
+	message(title, text) {
+		const panel = new SplashPanel();
+		panel.title = title;
+		panel.text = text;
+		panel.show();
+	}
+
 	resetProgress() {
 		for (const prefix of ['level-enabled.', 'level-passed.', 'score', 'last-level', 'reports-log'])
 			UserPrefs.removeByPrefix(prefix);
@@ -553,4 +896,8 @@ export class PrefsScreen extends Screen {
 		this.pages = [this.pages[0]];
 		this.refresh();
 	}
+}
+
+function toBoolValue(v) {
+	return v === true || v === 1 || v === 'true' || v === 'YES' || v === 'yes';
 }

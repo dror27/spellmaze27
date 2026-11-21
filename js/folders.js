@@ -317,6 +317,18 @@ class FoldersRegistry {
 		return items;
 	}
 
+	// an in-memory item (e.g. the player's own word list): files maps relative paths to text or bytes
+	async addMemorySource(name, files, origin, domain, priority) {
+		const enc = new TextEncoder();
+		const entries = new Map();
+		for (const [path, data] of Object.entries(files))
+			entries.set(path, typeof data === 'string' ? enc.encode(data) : data);
+		this.removeSource(name);
+		const source = new ZipSource(name, entries);
+		this.sources.push(source);
+		return this.registerSource(source, origin, domain, priority || this.nextPriority++);
+	}
+
 	removeSource(name) {
 		const src = this.sources.find(s => s.name === name);
 		if (!src)

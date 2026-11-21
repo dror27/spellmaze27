@@ -9,6 +9,7 @@ import { resetColorTables } from './piece.js';
 import { SplashPanel } from './ui/splash.js';
 import { GameManager } from './sequence.js';
 import { el } from './util.js';
+import { registerCustomWords } from './customwords.js';
 
 async function boot() {
 	const app = document.getElementById('app');
@@ -28,6 +29,12 @@ async function boot() {
 		Folders.errors.push(e.message);
 	}
 	await loadImportedZips();
+	try {
+		await registerCustomWords();
+	} catch (e) {
+		console.warn('own word list:', e);
+		Folders.errors.push(`My Words: ${e.message}`);
+	}
 	BrandManager.reload();
 	resetColorTables();
 	SoundTheme.preload();

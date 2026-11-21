@@ -8,7 +8,7 @@ import {
 	PieceFaderGBL, CrossPieceDisabler, PieceDecoratorGBL, ViewTransformerGBL, CompoundGameBoardLogic
 } from './logic.js';
 import {
-	AuctionSymbolDispenser, GridBoardPieceDispenserSymbols, GridBoardPieceDispenserWords
+	AuctionSymbolDispenser, GridBoardPieceDispenserSymbols, GridBoardPieceDispenserWords, WordListWordDispenser
 } from './dispenser.js';
 import { LanguageManager, JOKER_CHAR, containsJoker, pieceIsJoker } from './language.js';
 import { BrandManager } from './brand.js';
@@ -1691,7 +1691,7 @@ export class ParametricGameLevel extends GameLevel {
 		}
 
 		if (this.bool('dispenser_word_by_word', false)) {
-			const pd = new GridBoardPieceDispenserWords(this.language.getAllWords(), this.bool('dispenser_reorder', false));
+			const pd = new GridBoardPieceDispenserWords(new WordListWordDispenser(this.language.getAllWords(), this.bool('dispenser_reorder', false)));
 			pd.dispensingTickPeriod = 0.5;
 			pd.interWordTickPeriod = 0.5;
 			pd.scrambleWordSymbols = this.bool('dispenser_scramble', false);
