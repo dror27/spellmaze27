@@ -1,0 +1,13 @@
+# Fruits
+APPLE
+BANANA|Banana|A long yellow fruit.
+CHERRY
+FIG
+GRAPE
+KIWI
+LEMON
+LIME
+MANGO
+MELON
+PEAR
+PLUM

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Fruits</string>
+	<key>description</key>
+	<string>Spell the names of fruits</string>
+	<key>item-icon</key>
+	<string>icon.png</string>
+	<key>voice-language</key>
+	<string>en</string>
+	<key>text-delimiter</key>
+	<string>|</string>
+	<key>game</key>
+	<string>8992447A-FCB4-410F-B43C-68B7E1A0C721</string>
+</dict>
+</plist>

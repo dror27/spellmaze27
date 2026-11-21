@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>My First Game</string>
+	<key>description</key>
+	<string>Two easy levels</string>
+	<key>levels</key>
+	<array>
+		<string>EBCD65AA-EDEE-49CD-8BDD-2C09716EABA1</string>
+		<string>F8BD4120-EC2A-4DCE-8171-22FC67118B68</string>
+	</array>
+	<key>EBCD65AA-EDEE-49CD-8BDD-2C09716EABA1</key>
+	<dict>
+		<key>name</key>
+		<string>Warm Up</string>
+		<key>description</key>
+		<string>Slow, 3 letters or more</string>
+		<key>help-splash</key>
+		<dict>
+			<key>title</key>
+			<string>Welcome!</string>
+			<key>text</key>
+			<string>Tap the letters of a word in order.
+-
+Tap the last letter again to finish the word.</string>
+			<key>auto-show</key>
+			<true/>
+		</dict>
+		<key>prefs-data</key>
+		<dict>
+			<key>board_override</key>
+			<true/>
+			<key>board_formula</key>
+			<string>0 0 60 60 4 4</string>
+			<key>valid_min_word_size</key>
+			<integer>3</integer>
+			<key>dispenser_symbol_count</key>
+			<integer>40</integer>
+			<key>dispenser_tick_period</key>
+			<real>2</real>
+			<key>allow_show_hint</key>
+			<true/>
+		</dict>
+	</dict>
+	<key>F8BD4120-EC2A-4DCE-8171-22FC67118B68</key>
+	<dict>
+		<key>name</key>
+		<string>Spiral</string>
+		<key>description</key>
+		<string>Letters move in a spiral</string>
+		<key>prefs-data</key>
+		<dict>
+			<key>board_override</key>
+			<true/>
+			<key>board_formula</key>
+			<string>0 0 60 60 5 5</string>
+			<key>logic_nudge</key>
+			<true/>
+			<key>logic_board_order</key>
+			<string>Spiral</string>
+			<key>logic_decorator</key>
+			<true/>
+			<key>logic_decorator_apple_prob</key>
+			<real>0</real>
+			<key>logic_decorator_coin_prob</key>
+			<real>0</real>
+			<key>logic_decorator_bomb_prob</key>
+			<real>0.1</real>
+			<key>dispenser_joker_prob</key>
+			<real>0.03</real>
+		</dict>
+	</dict>
+</dict>
+</plist>

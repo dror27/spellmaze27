@@ -27,6 +27,11 @@ by hand from the Actions tab. It refreshes the `files.txt` listings of the folde
 
 To publish catalog changes, rebuild `data/more` with `tools/build_catalog.py`, commit and push.
 
+## Making your own content
+
+[docs/CONTENT_GUIDE.md](docs/CONTENT_GUIDE.md) explains how to build word lists, games (sets of levels) and skins
+as zip files by hand, and how to import them in the game. Working examples are in [examples/](examples/).
+
 ## Data: property files and zips
 
 The game content keeps its original format and layout: UUID folders holding `props.plist`
