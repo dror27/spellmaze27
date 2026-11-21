@@ -429,37 +429,44 @@ function openDB() {
 	});
 }
 
+// each operation opens and closes its own connection, so a factory reset can delete the database right away
+async function withStore(mode, fn) {
+	const db = await openDB();
+	try {
+		return await new Promise((resolve, reject) => {
+			const tx = db.transaction(STORE, mode);
+			let result;
+			const req = fn(tx.objectStore(STORE));
+			if (req)
+				req.onsuccess = () => { result = req.result; };
+			tx.oncomplete = () => resolve(result);
+			tx.onerror = () => reject(tx.error);
+		});
+	} finally {
+		db.close();
+	}
+}
+
 export const ZipStore = {
 	async list() {
 		try {
-			const db = await openDB();
-			return await new Promise((resolve, reject) => {
-				const tx = db.transaction(STORE, 'readonly');
-				const req = tx.objectStore(STORE).getAll();
-				req.onsuccess = () => resolve(req.result || []);
-				req.onerror = () => reject(req.error);
-			});
+			return (await withStore('readonly', st => st.getAll())) || [];
 		} catch (e) {
 			console.warn('IndexedDB unavailable', e);
 			return [];
 		}
 	},
 	async save(name, data, meta) {
-		const db = await openDB();
-		await new Promise((resolve, reject) => {
-			const tx = db.transaction(STORE, 'readwrite');
-			tx.objectStore(STORE).put({ name, data, added: Date.now(), meta: meta || null });
-			tx.oncomplete = resolve;
-			tx.onerror = () => reject(tx.error);
-		});
+		await withStore('readwrite', st => st.put({ name, data, added: Date.now(), meta: meta || null }));
 	},
 	async remove(name) {
-		const db = await openDB();
-		await new Promise((resolve, reject) => {
-			const tx = db.transaction(STORE, 'readwrite');
-			tx.objectStore(STORE).delete(name);
-			tx.oncomplete = resolve;
-			tx.onerror = () => reject(tx.error);
+		await withStore('readwrite', st => st.delete(name));
+	},
+	// delete the whole database (factory reset)
+	async clearAll() {
+		await new Promise(resolve => {
+			const req = indexedDB.deleteDatabase(DB_NAME);
+			req.onsuccess = req.onerror = req.onblocked = () => resolve();
 		});
 	}
 };

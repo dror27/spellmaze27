@@ -8,7 +8,7 @@
 	<string>Big tiles, slow letters, nobody loses.
 Six gentle levels for young players.</string>
 	<key>version</key>
-	<real>1.0</real>
+	<real>1.1</real>
 	<key>filename</key>
 	<string>Kids</string>
 	<key>uuid</key>

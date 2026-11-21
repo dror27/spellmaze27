@@ -37,7 +37,7 @@ from digit and sign tiles (numbers up to 12).</string>
 			<key>uuid</key>
 			<string>3248716F-742A-4B61-AE48-A0CE5768E0CB</string>
 			<key>version</key>
-			<real>1.0</real>
+			<real>1.1</real>
 			<key>name</key>
 			<string>Phonics</string>
 			<key>comment</key>

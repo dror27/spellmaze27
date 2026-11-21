@@ -501,7 +501,8 @@ export class PrefsScreen extends Screen {
 			])
 		});
 		this.row(s, 'Reset to Factory Settings', {
-			destructive: true, action: () => ActionSheet.show('Reset all settings, progress and scores? (imported files are kept)', [
+			sub: 'Erase everything: settings, progress, scores, downloads, your words',
+			destructive: true, action: () => ActionSheet.show('Erase everything SpellMaze keeps in this browser: settings, progress, scores, your player identity, downloaded and imported files and your own words? The game restarts afterwards.', [
 				{ label: 'Reset to Factory Settings', style: 'destructive', handler: () => this.factoryReset() },
 				{ label: 'Cancel', style: 'cancel' }
 			])
@@ -886,15 +887,31 @@ export class PrefsScreen extends Screen {
 		this.refresh();
 	}
 
-	factoryReset() {
-		UserPrefs.removeAll();
-		Wallet.reset();
-		LanguageManager.clearCache();
-		GameManager.clearCache();
-		resetColorTables();
-		BrandManager.reload();
-		this.pages = [this.pages[0]];
-		this.refresh();
+	// erase all local state of the game (this site only), then restart the page from scratch
+	async factoryReset() {
+		await withLoading(async () => {
+			GameManager.clearCache();
+			UserPrefs.removeAll();					// settings, progress, scores, identity, own words
+			Wallet.reset();
+			try {
+				for (const k of Object.keys(sessionStorage))
+					if (k.startsWith('spellmaze:'))
+						sessionStorage.removeItem(k);
+			} catch (e) { }
+			await ZipStore.clearAll();				// downloaded and imported zips
+			try {
+				if (window.caches)
+					for (const k of await caches.keys())
+						await caches.delete(k);
+				if (navigator.serviceWorker)
+					for (const r of await navigator.serviceWorker.getRegistrations())
+						await r.unregister();
+			} catch (e) { }
+		}, 'Erasing ...');
+		// a fresh load: the address gets a one-off parameter so cached pages aren't reused
+		const url = new URL(location.href);
+		url.searchParams.set('reset', Date.now().toString(36));
+		location.replace(url.href);
 	}
 }
 

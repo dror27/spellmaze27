@@ -146,7 +146,8 @@ Everything the built-in content uses, ported line by line from the Objective-C:
 * **Sound and speech**: the original sound effects (converted from AIFF to WAV) and the Web Speech API in place of
   eSpeak (voice chosen from the ontology's `voice-language`). Word sounds from `sounds/<WORD>.mp3` are played when present.
 * **Persistence**: preferences, unlocked/passed levels and scores live in `localStorage`; the wallet and learnt
-  words live in `sessionStorage` (the original kept them in memory only).
+  words live in `sessionStorage` (the original kept them in memory only). CONF › Advanced › Reset to Factory
+  Settings erases all of it, including downloaded and imported zips and the player identity, and restarts the page.
 
 ## Left out, as agreed
 

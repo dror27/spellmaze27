@@ -13,6 +13,11 @@ import { registerCustomWords } from './customwords.js';
 import { ScoresDatabase } from './scores.js';
 
 async function boot() {
+	if (new URLSearchParams(location.search).has('reset')) {
+		const url = new URL(location.href);
+		url.searchParams.delete('reset');
+		history.replaceState(null, '', url.href);
+	}
 	const app = document.getElementById('app');
 	Stage.init(app);
 	const splash = el('img', 'startup', Stage.root);

@@ -12,10 +12,22 @@
 	<string>en</string>
 	<key>tutorial-words</key>
 	<array>
-		<string>SUN</string>
-		<string>CUP</string>
-		<string>HAT</string>
+		<string>BAG</string>
+		<string>BED</string>
+		<string>BOX</string>
 		<string>BUS</string>
+		<string>CUP</string>
+		<string>EGG</string>
+		<string>HAT</string>
+		<string>MAP</string>
+		<string>MUG</string>
+		<string>NET</string>
+		<string>PAN</string>
+		<string>PEN</string>
+		<string>POT</string>
+		<string>SUN</string>
+		<string>VAN</string>
+		<string>WEB</string>
 	</array>
 	<key>allow-add-word</key>
 	<false/>

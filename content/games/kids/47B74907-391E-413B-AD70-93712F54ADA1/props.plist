@@ -22,7 +22,7 @@
 		<key>name</key>
 		<string>Hello</string>
 		<key>description</key>
-		<string>Big tiles, take your time</string>
+		<string>Words with pictures</string>
 		<key>prefs-data</key>
 		<dict>
 			<key>allow_play_pause</key>
@@ -36,9 +36,9 @@
 			<key>show_hint_pieces</key>
 			<true/>
 			<key>show_hint_delay</key>
-			<integer>4</integer>
+			<integer>3</integer>
 			<key>between_hint_delay</key>
-			<integer>6</integer>
+			<integer>5</integer>
 			<key>hint_max_word_size</key>
 			<integer>3</integer>
 			<key>rush_words</key>
@@ -65,6 +65,8 @@
 			<real>3.0</real>
 			<key>dispenser_symbol_count</key>
 			<integer>24</integer>
+			<key>lang_tutorial</key>
+			<true/>
 		</dict>
 		<key>help-splash</key>
 		<dict>
@@ -75,7 +77,7 @@
 -
 Tap its letters one by one, then tap the last letter again.
 -
-The letters that jump are a hint.</string>
+Wait a moment and a picture appears: it is a hint! The letters that jump spell it.</string>
 			<key>auto-show</key>
 			<true/>
 		</dict>
@@ -85,7 +87,7 @@ The letters that jump are a hint.</string>
 		<key>name</key>
 		<string>Again</string>
 		<key>description</key>
-		<string>More letters</string>
+		<string>More words with pictures</string>
 		<key>prefs-data</key>
 		<dict>
 			<key>allow_play_pause</key>
@@ -99,9 +101,9 @@ The letters that jump are a hint.</string>
 			<key>show_hint_pieces</key>
 			<true/>
 			<key>show_hint_delay</key>
-			<integer>4</integer>
+			<integer>3</integer>
 			<key>between_hint_delay</key>
-			<integer>6</integer>
+			<integer>5</integer>
 			<key>hint_max_word_size</key>
 			<integer>3</integer>
 			<key>rush_words</key>
@@ -128,6 +130,8 @@ The letters that jump are a hint.</string>
 			<real>2.8</real>
 			<key>dispenser_symbol_count</key>
 			<integer>36</integer>
+			<key>lang_tutorial</key>
+			<true/>
 		</dict>
 	</dict>
 	<key>2CEE280A-C605-44C5-B534-43C322BE3B5A</key>
@@ -149,9 +153,9 @@ The letters that jump are a hint.</string>
 			<key>show_hint_pieces</key>
 			<true/>
 			<key>show_hint_delay</key>
-			<integer>4</integer>
+			<integer>3</integer>
 			<key>between_hint_delay</key>
-			<integer>6</integer>
+			<integer>5</integer>
 			<key>hint_max_word_size</key>
 			<integer>3</integer>
 			<key>rush_words</key>
@@ -178,6 +182,8 @@ The letters that jump are a hint.</string>
 			<real>2.6</real>
 			<key>dispenser_symbol_count</key>
 			<integer>40</integer>
+			<key>lang_tutorial</key>
+			<true/>
 		</dict>
 	</dict>
 	<key>D3F59FEC-DF9E-4A58-9250-A8A60C9EACF2</key>

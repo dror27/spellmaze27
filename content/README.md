@@ -5,7 +5,7 @@ the game under CONF › Game / Game Type / Skin › Get More › SpellMaze More 
 
 | Folder | Kind | What it is |
 |---|---|---|
-| `ontologies/phonics` | word list | 88 three-letter words for early readers, 16 with pictures; carries the *Kids* game |
+| `ontologies/phonics` | word list | 88 three-letter words for early readers, 16 with pictures (its `tutorial-words`); carries the *Kids* game, whose first three levels play the picture words only, so every hint and found word shows its picture |
 | `ontologies/spelling-bee-grade-1`, `-3`, `-5` | word lists | 30 spelling words per grade, each with its meaning; carry the *Spelling Bee* game |
 | `ontologies/equations` | word list | 404 true equations with numbers up to 12 (`+`, `-`, `×`); plays with any game |
 | `ontologies/primes` | word list | every prime from 11 to 99,991; carries the *Prime Time* game |

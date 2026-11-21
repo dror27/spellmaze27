@@ -321,7 +321,7 @@ Leave a key out to use its default. Times are in seconds.
 | Key | Meaning |
 |---|---|
 | `lang_game` | the UUID of another word list to use in this level, or `[List]` together with `lang_word_list` (the words themselves, one per line) |
-| `lang_tutorial` | `<true/>`: use only the word list's `tutorial-words` (good for a first level) |
+| `lang_tutorial` | `<true/>`: use only the word list's `tutorial-words` (good for a first level). Listing a picture list's words with pictures there gives levels where every hint and every found word shows a picture, as in the *Kids* game |
 
 The two built-in games use all of these. Their `props.plist` files are a good source of ideas: *Classic* is
 `data/Builtin/1329C440-7782-4F3D-A39C-0C9F5E482C38/Games/6F161DAF-6349-2774-9B9B-A9C5DA906534/props.plist`
