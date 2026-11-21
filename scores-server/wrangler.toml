@@ -11,5 +11,4 @@ ALLOWED_ORIGINS = "https://dror27.github.io,http://localhost:8000,http://127.0.0
 [[d1_databases]]
 binding = "DB"
 database_name = "spellmaze-scores"
-# filled in by: npx wrangler d1 create spellmaze-scores
-database_id = "REPLACE_WITH_DATABASE_ID"
+database_id = "64bba702-ffe9-4a75-8058-0e8a9634e56c"

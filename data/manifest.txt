@@ -25,3 +25,6 @@ Builtin/1329C440-7782-4F3D-A39C-0C9F5E482C38
 # catalog sites to browse for more games, game types and skins (CONF > Game/Game Type/Skin > Get More ...)
 # a site holds <domain>/directory.plist trees (ontologies, games, brands), as built by tools/build_catalog.py
 More: more
+
+# the shared score board server (see scores-server/README.md)
+Scores: https://spellmaze-scores.spellmaze-scores.workers.dev

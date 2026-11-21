@@ -36,7 +36,12 @@ Safeguards:
 
 A game that runs in the browser can always be made to submit fake scores. These checks only make it harder.
 
-## Deploying
+## Deployment
+
+Live at **https://spellmaze-scores.spellmaze-scores.workers.dev**, with D1 database `spellmaze-scores`.
+To redeploy after changing `src/index.js`, run `npx wrangler deploy`.
+
+## Deploying from scratch
 
 You need Node.js and a free Cloudflare account.
 
