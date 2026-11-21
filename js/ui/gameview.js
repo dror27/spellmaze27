@@ -30,7 +30,9 @@ export class GameLevelView {
 
 		const cellColumns = 6, cellRows = 6;
 		const cellWidth = 288 / cellColumns, cellHeight = 288 / cellRows;
-		r.appendChild(model.dispenser.viewWithFrame({ x: 68, y: 2, w: cellWidth + 1, h: cellHeight + 1 }));
+		// the dispenser cell, centered (the original had it at x=68)
+		const dispenserFrame = { x: Math.round((frame.w - (cellWidth + 1)) / 2), y: 2, w: cellWidth + 1, h: cellHeight + 1 };
+		r.appendChild(model.dispenser.viewWithFrame(dispenserFrame));
 
 		const boardRect = { x: 16, y: cellHeight + 8, w: cellColumns * cellWidth + 1, h: cellRows * cellHeight + 1 };
 		if (!model.hintBoard)
@@ -49,7 +51,9 @@ export class GameLevelView {
 
 		if (this.showSymbolsLeftCounter) {
 			this.symbolsLeft = el('div', 'symbols-left', r);
-			setFrame(this.symbolsLeft, 86, 32, 46, 20);
+			// the symbols left counter sits to the right of the dispenser, vertically centered on it
+			setFrame(this.symbolsLeft, dispenserFrame.x + dispenserFrame.w + 6, dispenserFrame.y + (dispenserFrame.h - 20) / 2, 60, 20);
+			this.symbolsLeft.style.textAlign = 'left';
 			this.symbolsLeft.style.color = brand.globalGridColor();
 			this.symbolsLeft.style.font = `bold 16px ${brand.globalFont()}`;
 		}

@@ -236,9 +236,11 @@ export class MainMenuScreen extends Screen {
 		this.widget = new MainMenuWidget(this);
 		this.widget.addEntry('PLAY', () => this.doPlay());
 		this.widget.addEntry('LEVEL', () => this.doLevel());
+		// settings stay reachable through the (i) button and the SpellMaze tile of the game selection row
 		if (scoresAvailable())
 			this.widget.addEntry('SCORES', () => this.doScores());
-		this.widget.addEntry('CONF', () => this.flipAction());
+		else
+			this.widget.addEntry('CONF', () => this.flipAction());
 	}
 
 	build() {
