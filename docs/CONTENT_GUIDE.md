@@ -267,7 +267,8 @@ Leave a key out to use its default. Times are in seconds.
 | Key | Type | Default | Meaning |
 |---|---|---|---|
 | `board_override` | yes/no | no | use the board below instead of the standard 6 by 6 |
-| `board_formula` | text | | the board's size, e.g. `0 0 60 60 5 5` for 5 by 5 (see "Board formulas") |
+| `board_formula` | text | | the board: `0 0 60 60 5 5` for 5 by 5, or several lines for any shape (see "Board formulas") |
+| `hint_board_formula` | text | | an extra board that holds picture jokers (see "The hint board") |
 | `game_over_grace` | number | 15 | once the board is full, seconds left to find a word before the level is lost (0: never lost) |
 | `game_won_grace` | number | 15 | after the last letter, seconds to use the letters still on the board |
 
@@ -314,15 +315,106 @@ The two built-in games use all of these. Their `props.plist` files are a good so
 `data/Builtin/1329C440-7782-4F3D-A39C-0C9F5E482C38/Games/6F161DAF-6349-2774-9B9B-A9C5DA906534/props.plist`
 in the repository, and *Learning* is the `1A767972-…` folder next to it.
 
-### Board formulas
+### Board formulas: building boards of any shape
 
-A board formula is one line per board, of the form `x y width height columns rows [grid color]`:
+A board formula describes a board as **one or more rectangles**. Each line is one rectangle (a "part"):
 
-* For a level's board, only **columns** and **rows** matter: `0 0 60 60 4 4` is a 4 by 4 board. The board always
-  fills the same square area, so a 3 by 3 board has big tiles and a 6 by 6 board small ones.
-* For a level selector `board-formula`, use several lines to place several small boards. Positions and sizes
-  are measured so that 60 is one standard cell. The *Learning* game uses this for its Learn / Train / Test rows,
-  and a grid color of `0,0,0,0` (transparent) for its heading tiles.
+```
+x  y  cell-width  cell-height  columns  rows  [grid-color]
+```
+
+* **`columns` and `rows`** give the part's size in cells.
+* **`x` and `y`** place the part's top-left corner. **`cell-width` and `cell-height`** give its cell size.
+  All four use the same unit, where **60 is one standard cell**. The usual playing area is 6 × 6 standard cells,
+  so it spans 0 to 360 in each direction. Negative values and values past 360 place a part outside it.
+* **`grid-color`** (optional) colors the part's grid lines: `red,green,blue,opacity` with values from 0 to 1,
+  e.g. `1.0,0.8,0.3,1.0`, or `0,0,0,0` for no lines.
+* Empty lines and lines starting with `#` are ignored. Spaces at the start of a line don't matter, so a formula
+  can be written over several indented lines inside one `<string>`.
+
+**A single line** is a plain rectangular board. It always fills the whole playing area: `0 0 60 60 4 4` is a
+4 × 4 board with big tiles, and `0 0 60 60 6 6` is 6 × 6. Only `columns` and `rows` matter then.
+
+**Several lines** make one board out of several parts, each drawn where its line says. That builds any shape
+made of rectangles. Letters fall into the free cells of all the parts. This is the plus-shaped board of the
+*Plus* level in the examples:
+
+```xml
+<key>board_override</key>
+<true/>
+<key>board_formula</key>
+<string>
+	120   0 60 60 2 2 0.4,0.7,1.0,1.0
+	  0 120 60 60 6 2 1.0,0.8,0.3,1.0
+	120 240 60 60 2 2 0.4,0.7,1.0,1.0
+</string>
+```
+
+```
+        ┌──┬──┐                 top arm:     2 × 2 at (120, 0)
+        ├──┼──┤
+  ┌──┬──┼──┼──┼──┬──┐           middle bar:  6 × 2 at (0, 120)
+  ├──┼──┼──┼──┼──┼──┤
+  └──┴──┼──┼──┼──┴──┘
+        ├──┼──┤                 bottom arm:  2 × 2 at (120, 240)
+        └──┴──┘
+```
+
+More shapes, all in the same 0–360 area:
+
+```
+# an L
+0   0 60 60 2 6
+120 240 60 60 4 2
+
+# a staircase
+0     0 60 60 2 2
+120 120 60 60 2 2
+240 240 60 60 2 2
+
+# two islands with bigger cells (cell size 90 = 1.5 standard cells)
+0     0 90 90 2 2
+180 180 90 90 2 2
+```
+
+Things to know about boards made of several parts:
+* **Parts shouldn't overlap**: overlapping cells are drawn on top of each other.
+* **Each part counts its own rows and columns.** The cross and adjacency rules of `logic_disabler` compare positions
+  part by part, so on a multi-part board they can behave unexpectedly. A bomb only clears neighbours in its own part.
+  The original game behaved the same way.
+* `logic_nudge` (spiral, chaos, snake) needs a single rectangle. On a multi-part board it is ignored.
+* Picture hints shown in the corner (when `joker_image_hints` is off) use a fixed area at the bottom left.
+
+#### The hint board (`hint_board_formula`)
+
+A level may have a second, separate board for **picture jokers**. With `joker_image_hints` and
+`joker_image_rewards`, the hint and reward pictures land there instead of on the playing board, so they don't
+take up its cells. Its formula has the same form, and its position is relative to the top-left corner of the
+playing area. For example, `0 -65 60 60 1 1 1,1,1,1` is one cell with a white grid, just above the board at the
+left. Like any joker, a picture tile there can be used in a word.
+
+#### Formulas kept in a file or on the web
+
+Instead of the formula itself, `board_formula` and `hint_board_formula` may hold:
+* `!<file>`: the formula is read from that file in the **current skin's** folder, e.g. `!boards/plus.txt`
+* `http://…` or `https://…`: the formula is downloaded from that address (the server must allow it, through CORS)
+
+The original game could also compute a formula with a Tcl script (`=…`). The web version doesn't support that.
+
+#### The level selector's formula
+
+A game's `board-formula` (with a dash) uses the same form to lay out the **level selector**: one tile per level
+in order, then the `cell-headings` tiles. The *Learning* game uses three rows of six levels and four headings:
+
+```
+0  60  60 60 6 1                     # Learn levels 1-6
+0  180 60 60 6 1                     # Train levels
+0  300 60 60 6 1                     # Test levels
+90  15 180 45 1 1 0,0,0,0            # heading tiles: wide cells, no grid lines
+90 135 180 45 1 1 0,0,0,0
+90 255 180 45 1 1 0,0,0,0
+30 -60 300 45 1 1 0,0,0,0            # the title above the board
+```
 
 ## 7. Single levels (advanced)
 
@@ -436,7 +528,7 @@ Things to know:
 | Example | Kind | Shows |
 |---|---|---|
 | `fruits/` | word list | words, pictures, a word text (BANANA), an icon, the voice language, and naming its game |
-| `my-first-game/` | game | two levels, a help panel, a slow level and a spiral level with bombs and jokers |
+| `my-first-game/` | game | three levels: a slow level with a help panel, a spiral level with bombs and jokers, and a plus-shaped board |
 | `ocean-skin/` | skin | colors, three custom tile colors, round tiles, a gloss overlay |
 
 `data/zips/FingerSpellingEnglish.zip` in the repository is a real word list with letter pictures (`skin` › `images` › `symbols_…`).

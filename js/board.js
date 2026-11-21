@@ -340,10 +340,15 @@ export function boardByFormula(formula) {
 	if (comps.length === 1)
 		return boardByComponent(comps[0]);
 	const board = new CompoundBoard();
+	let w = 0, h = 0;
 	for (const comp of comps) {
 		const sub = boardByComponent(comp);
 		board.addBoard(sub, sub.suggestedFrame);
+		w = Math.max(w, sub.suggestedFrame.x + sub.suggestedFrame.w);
+		h = Math.max(h, sub.suggestedFrame.y + sub.suggestedFrame.h);
 	}
+	// the parts keep their own positions: the compound board's frame starts at 0,0
+	board.suggestedFrame = { x: 0, y: 0, w, h };
 	return board;
 }
 

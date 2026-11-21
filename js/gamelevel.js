@@ -1429,6 +1429,32 @@ export class GameLevel {
 	}
 }
 
+// a formula may be given indirectly (port of FormulaEvaluator): "!<file>" names a file in the current skin's
+// folder, "http(s)://..." a URL to fetch it from. "=<tcl>" (a Tcl script) is not supported.
+async function evalFormula(formula) {
+	formula = String(formula || '');
+	const f = formula.trim();
+	try {
+		if (f.startsWith('!')) {
+			const brand = BrandManager.currentBrand();
+			const text = brand.item ? await brand.item.text(f.slice(1)) : null;
+			return text ? evalFormula(text) : '';
+		}
+		if (/^https?:\/\//i.test(f)) {
+			const r = await fetch(f);
+			return r.ok ? evalFormula(await r.text()) : '';
+		}
+		if (f.startsWith('=')) {
+			console.warn('board formula scripts (Tcl) are not supported:', f.slice(0, 60));
+			return '';
+		}
+	} catch (e) {
+		console.warn('board formula failed', e);
+		return '';
+	}
+	return formula;
+}
+
 // ---------------------------------------------------------------- parametric (props driven) level
 
 export class ParametricGameLevel extends GameLevel {
@@ -1562,11 +1588,11 @@ export class ParametricGameLevel extends GameLevel {
 		if (this.bool('board_override', false)) {
 			const rows = this.int('board_rows', 6);
 			const columns = this.int('board_columns', 6);
-			const formula = this.str('board_formula', '');
+			const formula = await evalFormula(this.str('board_formula', ''));
 			const board = (formula.trim().length && boardByFormula(formula)) || new GridBoard(formula.trim().length ? 6 : columns, formula.trim().length ? 6 : rows);
 			this.board = board;
 			board.level = this;
-			const hintFormula = this.str('hint_board_formula', '');
+			const hintFormula = await evalFormula(this.str('hint_board_formula', ''));
 			if (hintFormula.trim().length && boardByFormula(hintFormula)) {
 				this.hintBoard = boardByFormula(hintFormula);
 				this.hintBoard.level = this;

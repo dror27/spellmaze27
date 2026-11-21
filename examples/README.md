@@ -5,7 +5,7 @@ Hand-made examples for [the content guide](../docs/CONTENT_GUIDE.md):
 | Folder | Kind | Zip |
 |---|---|---|
 | `fruits/` | word list (12 fruits, pictures, a word text, and it names its game) | `zips/Fruits.zip` |
-| `my-first-game/` | game with two levels | `zips/MyFirstGame.zip` |
+| `my-first-game/` | game with three levels, including a plus-shaped board | `zips/MyFirstGame.zip` |
 | `ocean-skin/` | skin | `zips/OceanSkin.zip` |
 
 To try them, download the three zips, then in the game open CONF › **Import Zip Files …** and choose them.

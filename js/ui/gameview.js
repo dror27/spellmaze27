@@ -38,10 +38,8 @@ export class GameLevelView {
 		if (!model.hintBoard)
 			r.appendChild(model.board.viewWithFrame(boardRect));
 		else {
-			let br = model.board.suggestedFrame;
-			if (!br || !br.w)
-				br = boardRect;
-			const rect = { x: 16, y: cellHeight + 8, w: br.w + 1, h: br.h + 1 };
+			// (the original's size check always fell back to the standard board area)
+			const rect = boardRect;
 			r.appendChild(model.board.viewWithFrame(rect));
 			const hr = model.hintBoard.suggestedFrame;
 			r.appendChild(model.hintBoard.viewWithFrame({ x: rect.x + hr.x, y: rect.y + hr.y, w: hr.w, h: hr.h }));
