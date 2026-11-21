@@ -1,0 +1,46 @@
+# Publish SpellMaze to GitHub Pages on every push to master (or manually from the Actions tab).
+name: Publish to GitHub Pages
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # web servers can't list directories: regenerate the file listings of the folder roots
+      # named in data/manifest.txt, so they always match what is committed
+      - name: Refresh data folder listings
+        run: |
+          grep -v '^\s*#' data/manifest.txt | sed 's/\s*$//' | grep -v -i '^more:' | grep -v '\.zip$' | grep -v '^$' | while read -r root; do
+            if [ -d "data/$root" ]; then tools/make_filelist.sh "data/$root"; fi
+          done
+
+      - name: Assemble site
+        run: |
+          mkdir -p _site
+          cp -R index.html manifest.webmanifest css js assets data _site/
+          touch _site/.nojekyll
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4
