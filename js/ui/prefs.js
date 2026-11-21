@@ -18,6 +18,7 @@ import { Wallet } from '../wallet.js';
 import { SoundTheme, TextSpeaker } from '../sound.js';
 import { withLoading } from './loading.js';
 import { parsePlist } from '../plist.js';
+import { PK_IDENTITY_NICK, userIdentity } from '../scorescomm.js';
 
 export const VERSION = '2.7 (web)';
 
@@ -133,12 +134,19 @@ export class PrefsScreen extends Screen {
 		const logo = el('div', 'prefs-logo', p);
 		const img = el('img', '', logo);
 		img.src = 'assets/images/ProgramIcon1.png';
+		const home = el('div', 'prefs-comment', p);
+		home.innerHTML = 'A SpellMaze Game<br>by Dror Kessler<br>Copyright © 2026';
 
 		let s = this.section(p, 'Setup how the game sounds');
 		this.toggle(s, 'Sound Effects', PK_SOUND_ENABLED, true);
 		const tts = this.toggle(s, 'Speaker Voice', PK_TTS_ENABLED, true);
 		if (!TextSpeaker.available())
 			tts.querySelector('.prefs-label').append(' (not supported by this browser)');
+
+		if (Folders.scoresUrl) {
+			s = this.section(p, 'Setup your identity (shown on the shared score board)');
+			this.textRow(s, 'Nickname', PK_IDENTITY_NICK, `Player-${userIdentity().slice(0, 4)}`, 20);
+		}
 
 		s = this.section(p, "Setup what game you're playing");
 		const langUUID = LanguageManager.defaultLanguageUUID();
@@ -161,6 +169,32 @@ export class PrefsScreen extends Screen {
 		this.row(s, 'Advanced Settings', { disclosure: true, action: () => this.showPage(q => this.advancedPage(q), 'Advanced') });
 
 		el('div', 'prefs-footer', p).textContent = `SpellMaze, Version ${VERSION}`;
+	}
+
+	textRow(s, label, key, placeholder, maxLength) {
+		const r = this.row(s, label);
+		const input = el('input', 'prefs-text', r);
+		input.type = 'text';
+		input.maxLength = maxLength || 40;
+		input.placeholder = placeholder || '';
+		input.value = UserPrefs.getString(key, '');
+		input.autocomplete = 'off';
+		input.spellcheck = false;
+		const save = () => {
+			const v = input.value.trim();
+			if (v)
+				UserPrefs.setString(key, v);
+			else
+				UserPrefs.remove(key);
+		};
+		input.addEventListener('change', save);
+		input.addEventListener('blur', save);
+		input.addEventListener('keydown', ev => {
+			if (ev.key === 'Enter')
+				input.blur();
+			ev.stopPropagation();
+		});
+		return r;
 	}
 
 	speedRow(s) {

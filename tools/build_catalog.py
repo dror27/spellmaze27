@@ -25,6 +25,14 @@ from xml.sax.saxutils import escape
 # ------------------------------------------------------------------ plist writing (PropsStream)
 
 
+# the copyright year shown in the catalog descriptions (the descriptors say 2020)
+COPYRIGHT_YEAR = '2026'
+
+
+def with_copyright_year(text):
+    return text.replace('Copyright © 2020', 'Copyright © ' + COPYRIGHT_YEAR) if isinstance(text, str) else text
+
+
 class PropsStream:
     def __init__(self):
         self.lines = []
@@ -65,7 +73,7 @@ class PropsStream:
                 for line in f.read().splitlines():
                     self.println(line)
         elif isinstance(value, str):
-            self.println('<string>%s</string>' % escape(value.replace('\\n', '\n')))
+            self.println('<string>%s</string>' % escape(with_copyright_year(value).replace('\\n', '\n')))
         elif isinstance(value, list):
             self.println('<array>')
             self.indent += 1

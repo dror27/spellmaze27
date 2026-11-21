@@ -80,6 +80,16 @@ The `More: more` line in `data/manifest.txt` points the game at it. Add more `Mo
 sites, including absolute URLs. A site must allow cross-origin requests (CORS) if it is on another host.
 Downloaded items are stored in the browser like imported zips, and are selected right away.
 
+## Shared score board
+
+The original's online score board (`ScoresComm`, the SCORES screen) is back. `scores-server/` holds a small
+Cloudflare Worker with a D1 database, which runs on the free tier; see `scores-server/README.md` to deploy it.
+The `Scores: <url>` line in `data/manifest.txt` points the game at the server. When a server is configured:
+* the main menu shows **SCORES**: six rows of position and nickname. Tap a row for its score; tap the panel to
+  cycle through High Scores / Your Scores for the current game, then for all of SpellMaze.
+* scores are reported whenever a level is passed and whenever the score board is opened.
+* CONF has a **Nickname** setting. Players are identified by a random ID kept in the browser.
+
 ## What is ported
 
 Everything the built-in content uses, ported line by line from the Objective-C:
@@ -114,7 +124,7 @@ Everything the built-in content uses, ported line by line from the Objective-C:
 
 ## Left out, as agreed
 
-Tcl scripting (`script` levels and `=` formulas), online score boards, the store (purchases, billing codes,
+Tcl scripting (`script` levels and `=` formulas), the store (purchases, billing codes,
 promotions, "check for updates"), Facebook, multiple player identities, and the other domain games beyond what the data drives.
 
 ## Differences from the iOS build
@@ -154,3 +164,7 @@ promotions, "check for updates"), Facebook, multiple player identities, and the 
 | `js/scores.js`, `js/wallet.js` | ScoresDatabase, Wallet |
 | `js/brand.js`, `js/sound.js` | Brand/BrandManager, SoundTheme/TextSpeaker |
 | `js/ui/*` | view controllers and widgets |
+
+## License
+
+GPL v3. See `LICENSE`.

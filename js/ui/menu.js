@@ -11,6 +11,7 @@ import { Folders, DF_LANGUAGES } from '../folders.js';
 import { GameManager } from '../sequence.js';
 import { LanguageManager } from '../language.js';
 import { withLoading } from './loading.js';
+import { scoresAvailable } from '../scorescomm.js';
 
 const PIECE_ENTRY_KEY = 'MainMenuWidget_EntryKey';
 const PIECE_GAME_UUID = 'MainMenuWidget_GameUUID';
@@ -54,7 +55,9 @@ class MainMenuWidget {
 			if (width > 6)
 				cellWidth = Math.floor(cellWidth * 6 / width);
 			const h = this.cellSize + 1, w = width * cellWidth + 1;
-			entry.frame = { x: Math.round((frame.w - w) / 2), y: Math.round((entry.index + 0.5) * (this.cellSize * 1.8)), w, h };
+			const spacing = this.entries.length > 3 ? 70 : this.cellSize * 1.8;
+			const top = this.entries.length > 3 ? 20 - spacing / 2 : 0;
+			entry.frame = { x: Math.round((frame.w - w) / 2), y: Math.round(top + (entry.index + 0.5) * spacing), w, h };
 			this.mainBoard.addBoard(entry.board, entry.frame);
 		}
 		this.root.appendChild(this.mainBoard.viewWithFrame({ x: 0, y: 0, w: frame.w, h: frame.h }));
@@ -233,6 +236,8 @@ export class MainMenuScreen extends Screen {
 		this.widget = new MainMenuWidget(this);
 		this.widget.addEntry('PLAY', () => this.doPlay());
 		this.widget.addEntry('LEVEL', () => this.doLevel());
+		if (scoresAvailable())
+			this.widget.addEntry('SCORES', () => this.doScores());
 		this.widget.addEntry('CONF', () => this.flipAction());
 	}
 
@@ -242,7 +247,7 @@ export class MainMenuScreen extends Screen {
 		this.widget.paintEntries();
 		const label = el('div', 'copyright', this.widget.root);
 		setFrame(label, 35, 390, STAGE_W - 70, 25);
-		label.textContent = 'Copyright © 2020 Dror Kessler';
+		label.textContent = 'Copyright © 2026 Dror Kessler';
 		label.style.color = BrandManager.currentBrand().globalTextColor();
 		label.getBoundingClientRect();
 		label.style.transition = 'opacity 2s';
@@ -324,6 +329,15 @@ export class MainMenuScreen extends Screen {
 		UserPrefs.setBoolean(UserPrefs.keyForUuid('levels-menu-entered', seq.uuid), true);
 		const { LevelSelectorScreen } = await import('./levels.js');
 		Stage.push(new LevelSelectorScreen(seq));
+	}
+
+	async doScores() {
+		this.widget.reset();
+		const seq = await withLoading(() => GameManager.currentGameLevelSequence());
+		if (!seq)
+			return this.reenable();
+		const { ScoresScreen } = await import('./scores.js');
+		Stage.push(new ScoresScreen(seq));
 	}
 
 	reenable() {

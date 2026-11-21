@@ -209,6 +209,7 @@ class FoldersRegistry {
 		this.errors = [];
 		this.listeners = new Set();
 		this.moreSites = [];
+		this.scoresUrl = null;
 	}
 
 	onChange(fn) {
@@ -340,6 +341,12 @@ class FoldersRegistry {
 			try {
 				let domain = null, path = line;
 				const m = /^([A-Za-z]+):(.+)$/.exec(line);
+				if (m && m[1].toLowerCase() === 'scores') {
+					// the shared score board server (scores-server/)
+					const u = m[2].trim();
+					this.scoresUrl = /^[a-z]+:\/\//i.test(u) ? u : new URL(u, new URL(baseUrl, location.href)).href;
+					continue;
+				}
 				if (m && m[1].toLowerCase() === 'more') {
 					// a catalog site ("SpellMaze More"): <url>/<domain>/directory.plist
 					const site = m[2].trim();

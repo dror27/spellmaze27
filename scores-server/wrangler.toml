@@ -1,0 +1,15 @@
+# SpellMaze shared score board - Cloudflare Worker + D1
+# deploy: npx wrangler deploy        (see README.md in this folder)
+name = "spellmaze-scores"
+main = "src/index.js"
+compatibility_date = "2025-01-01"
+
+[vars]
+# browser origins allowed to call the API (comma separated)
+ALLOWED_ORIGINS = "https://dror27.github.io,http://localhost:8000,http://127.0.0.1:8000,http://127.0.0.1:8765"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "spellmaze-scores"
+# filled in by: npx wrangler d1 create spellmaze-scores
+database_id = "REPLACE_WITH_DATABASE_ID"

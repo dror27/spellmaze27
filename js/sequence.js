@@ -163,6 +163,7 @@ export class GameLevelSequence {
 			if (level.languageWordCount() - level.validSelectedWordCount() <= 0)
 				UserPrefs.setLevelExhausted(level.uuid, level.language.uuid, true);
 			ScoresDatabase.reportLevelPassed(level);
+			import('./scorescomm.js').then(m => m.reportScoresQuietly());
 			if (level.levelEndMenu) {
 				this.showPassedLevelEndMenu(level);
 				return;
