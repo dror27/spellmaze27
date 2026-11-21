@@ -18,6 +18,15 @@ The original 320-point-wide phone layout is scaled to fit the browser window, so
 phones. On tall phone screens the stage grows taller, the skin background fills it, and the original 416 px
 layouts are centered vertically. On a phone, "Add to Home Screen" runs it full screen (there is a web app manifest).
 
+## Publishing
+
+The game is published at **https://dror27.github.io/spellmaze27/**, including the SpellMaze More catalog.
+`.github/workflows/pages.yml` deploys it with GitHub Actions on every push to `master`, and can also be run
+by hand from the Actions tab. It refreshes the `files.txt` listings of the folder roots named in
+`data/manifest.txt`, then publishes the site files (`index.html`, `css`, `js`, `assets`, `data`).
+
+To publish catalog changes, rebuild `data/more` with `tools/build_catalog.py`, commit and push.
+
 ## Data: property files and zips
 
 The game content keeps its original format and layout: UUID folders holding `props.plist`
